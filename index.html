@@ -200,7 +200,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/%20%7C%7C" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -287,6 +287,1617 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/2020/06/03/String/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rarcard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/av.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/03/String/" itemprop="url">String</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-03T19:43:08+08:00">
+                2020-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><h4 id="一、String、StringBuffer、StringBier"><a href="#一、String、StringBuffer、StringBier" class="headerlink" title="一、String、StringBuffer、StringBier"></a>一、String、StringBuffer、StringBier</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* StringBuffer 线程安全的可变字符序列 同步串行 速度较快*/</span></span><br><span class="line">StringBuffer sb2=<span class="keyword">new</span> StringBuffer();</span><br><span class="line"> <span class="keyword">long</span> t1=System.currentTimeMillis();</span><br><span class="line"> <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">100000</span>;i++)&#123;</span><br><span class="line">     sb2.append(i);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">long</span> t2=System.currentTimeMillis();</span><br><span class="line"> System.out.println(<span class="string">"StringBuffer:"</span>+(t2-t1));</span><br><span class="line"></span><br><span class="line"> <span class="comment">/* StringBuilder 线程不安全 不保证同步 速度最快*/</span></span><br><span class="line"> StringBuilder sb=<span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">long</span> t3=System.currentTimeMillis();</span><br><span class="line"> <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">100000</span>;i++)&#123;</span><br><span class="line">     sb.append(i);</span><br><span class="line"> &#125;</span><br><span class="line">  <span class="keyword">long</span> t4=System.currentTimeMillis();</span><br><span class="line"> System.out.println(<span class="string">"StringBuilder:"</span>+(t4-t3));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="comment">/* String 线程安全，速度最慢 */</span></span><br><span class="line"> String sb3=<span class="keyword">new</span> String();</span><br><span class="line"> <span class="keyword">long</span> t5=System.currentTimeMillis();</span><br><span class="line"> <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">100000</span>;i++)&#123;</span><br><span class="line">     sb3+=i;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">long</span> t6=System.currentTimeMillis();</span><br><span class="line"> System.out.println(<span class="string">"String:"</span>+(t6-t5));</span><br></pre></td></tr></table></figure>
+
+<p>注意：加号“+”拼接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java语言为字符串连接运算符（+）提供特殊支持，并为其他对象转换为字符串。 字符串连接是通过StringBuilder （或StringBuffer ）类及其append方法实现的。</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="二、int转换字符串"><a href="#二、int转换字符串" class="headerlink" title="二、int转换字符串"></a>二、int转换字符串</h4><ol>
+<li>num+” “ ——最慢</li>
+<li>String.valueOf(num)——中等</li>
+<li>Integer.toString(num)——最快</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//int =&gt; String</span></span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">123456789</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//(1)num + ""</span></span><br><span class="line">        <span class="keyword">long</span> start = System.currentTimeMillis();<span class="comment">//得到开始运行时系统时间</span></span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">100000</span>; i++)&#123;</span><br><span class="line">            String str = num + <span class="string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> end = System.currentTimeMillis();<span class="comment">//得到结束运行时系统时间</span></span><br><span class="line">        System.out.println(<span class="string">"num + \"\" : "</span> + (end - start));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//(2)String.valueOf(num)</span></span><br><span class="line">        <span class="keyword">long</span> start2 = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">100000</span>; i++)&#123;</span><br><span class="line">            String str = String.valueOf(num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> end2 = System.currentTimeMillis();</span><br><span class="line">        System.out.println(<span class="string">"String.valueOf(num) : "</span> + (end2 - start2));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//(3)Integer.toString(num)</span></span><br><span class="line">        <span class="keyword">long</span> start3 = System.currentTimeMillis();</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">100000</span>; i++)&#123;</span><br><span class="line">            String str = Integer.toString(num);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> end3 = System.currentTimeMillis();</span><br><span class="line">        System.out.println(<span class="string">"Integer.toString(num) : "</span> + (end3 - start3));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String.valueOf(a)-&gt;Integer.toString(a)-&gt;IntegralToString.intToString(a)-&gt;convertInt(<span class="keyword">null</span>, a)</span><br><span class="line"></span><br><span class="line">Integer.toString(a)-&gt;IntegralToString.intToString(a)-&gt;convertInt(<span class="keyword">null</span>, a)</span><br></pre></td></tr></table></figure>
+
+<p><strong>可以看到String.valueOf是通过调用Integer.toString实现的，也难怪他们的效率如此接近。</strong></p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p>String,StringBuffer,StringBuilder运行速度的比较：<a href="https://blog.csdn.net/zclcqlove/article/details/80526084" target="_blank" rel="noopener">https://blog.csdn.net/zclcqlove/article/details/80526084</a></p>
+<p>Java中Native关键字的作用：<a href="https://www.cnblogs.com/KingIceMou/p/7239668.html" target="_blank" rel="noopener">https://www.cnblogs.com/KingIceMou/p/7239668.html</a></p>
+<p>java int转String所有方式的效率对比与深入解析：<a href="https://blog.csdn.net/self_study/article/details/50880110" target="_blank" rel="noopener">https://blog.csdn.net/self_study/article/details/50880110</a></p>
+<p>Java final类详解：<a href="https://blog.csdn.net/xv1356027897/article/details/79515712" target="_blank" rel="noopener">https://blog.csdn.net/xv1356027897/article/details/79515712</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/2020/06/03/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rarcard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/av.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/03/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="url">Lambda表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-03T19:43:08+08:00">
+                2020-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h2><h3 id="一、引入"><a href="#一、引入" class="headerlink" title="一、引入"></a>一、引入</h3><p>Lambda 表达式是一种匿名函数，简单地说，它是没有声明的方法，也即没有访问修饰符、返回值声明和名字。</p>
+<p>它可以写出更简洁、更灵活的代码。作为一种更紧凑的代码风格，使 Java 语言的表达能力得到了提升。</p>
+<h3 id="二、语法"><a href="#二、语法" class="headerlink" title="二、语法"></a>二、语法</h3><p>基本语法:  (parameters) -&gt; expression</p>
+<p>​     或者：(parameters) -&gt;{ statements; </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">() -&gt; <span class="number">5</span>  </span><br><span class="line">  </span><br><span class="line"><span class="comment">// 2. 接收一个参数(数字类型),返回其2倍的值  </span></span><br><span class="line">x -&gt; <span class="number">2</span> * x  </span><br><span class="line">  </span><br><span class="line"><span class="comment">// 3. 接受2个参数(数字),并返回他们的差值  </span></span><br><span class="line">(x, y) -&gt; x – y  </span><br><span class="line">  </span><br><span class="line"><span class="comment">// 4. 接收2个int型整数,返回他们的和  </span></span><br><span class="line">(<span class="keyword">int</span> x, <span class="keyword">int</span> y) -&gt; x + y  </span><br><span class="line">  </span><br><span class="line"><span class="comment">// 5. 接受一个 string 对象,并在控制台打印,不返回任何值(看起来像是返回void)  </span></span><br><span class="line">(String s) -&gt; System.out.print(s)</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、应用"><a href="#三、应用" class="headerlink" title="三、应用"></a>三、应用</h3><h4 id="1、线程启动"><a href="#1、线程启动" class="headerlink" title="1、线程启动"></a>1、线程启动</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> callable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Lam</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">       <span class="comment">/* new Thread(new Runnable() &#123;</span></span><br><span class="line"><span class="comment">            @Override</span></span><br><span class="line"><span class="comment">            public void run() &#123;</span></span><br><span class="line"><span class="comment">                System.out.println("Before Java8, too much code for too little to do");</span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">        &#125;).start();*/</span></span><br><span class="line"><span class="comment">//匿名类 new声明</span></span><br><span class="line"><span class="comment">//Java 8方式：</span></span><br><span class="line">        <span class="keyword">new</span> Thread( () -&gt; System.out.println(<span class="string">"In Java8, Lambda expression rocks !!"</span>) ).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="小知识——java线程-匿名内部类写法"><a href="#小知识——java线程-匿名内部类写法" class="headerlink" title="小知识——java线程 匿名内部类写法"></a>小知识——java线程 匿名内部类写法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(<span class="string">"子线程"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"主线程"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="小知识——TimeUnit，比sleep-可读"><a href="#小知识——TimeUnit，比sleep-可读" class="headerlink" title="小知识——TimeUnit，比sleep()可读"></a>小知识——TimeUnit，比sleep()可读</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeUnitTest</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line"> </span><br><span class="line">        System.out.println(<span class="string">"Sleeping for 4 minutes using Thread.sleep()"</span>);</span><br><span class="line">        Thread.sleep(<span class="number">4</span> * <span class="number">60</span> * <span class="number">1000</span>);</span><br><span class="line">        System.out.println(<span class="string">"Sleeping for 4 minutes using TimeUnit sleep()"</span>);</span><br><span class="line"> </span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">4</span>);</span><br><span class="line">        TimeUnit.MINUTES.sleep(<span class="number">4</span>);</span><br><span class="line">        TimeUnit.HOURS.sleep(<span class="number">1</span>);</span><br><span class="line">        TimeUnit.DAYS.sleep(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、链表操作"><a href="#2、链表操作" class="headerlink" title="2、链表操作"></a>2、链表操作</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">T</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; arrayList=<span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">       arrayList.add(<span class="string">"sad"</span>);</span><br><span class="line">       arrayList.add(<span class="string">"123"</span>);</span><br><span class="line">       arrayList.add(<span class="string">"bcd235"</span>);</span><br><span class="line">   <span class="comment">/*   for(String item: arrayList)&#123;   */</span><span class="comment">/*java foreach*/</span><span class="comment">/*</span></span><br><span class="line"><span class="comment">            System.out.println(item);</span></span><br><span class="line"><span class="comment">        &#125;*/</span></span><br><span class="line">      arrayList.forEach(x-&gt; System.out.println(x)); <span class="comment">/*java 8 lambda写法*/</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/2020/06/03/Junit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rarcard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/av.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/03/Junit/" itemprop="url">Junit</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-03T19:42:46+08:00">
+                2020-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Junit5"><a href="#Junit5" class="headerlink" title="Junit5"></a>Junit5</h3><h4 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h4><p>JUnit作为目前Java领域内最为流行的<strong>单元测试框架</strong>已经走过了数十年。而JUnit5在JUnit4停止更新版本的3年后终于也于2017年发布了。</p>
+<h4 id="一、junit4与-junit5常用注解比较7"><a href="#一、junit4与-junit5常用注解比较7" class="headerlink" title="一、junit4与 junit5常用注解比较7"></a>一、junit4与 junit5常用注解比较7</h4><table>
+<thead>
+<tr>
+<th>JUnit4</th>
+<th>JUnit5</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>@Test</td>
+<td>@Test</td>
+<td>该方法表示一个测试方法</td>
+</tr>
+<tr>
+<td>@BeforeClass</td>
+<td>@BeforeAll</td>
+<td>表示使用了该方法在当前类中所有使用@Test 的方法之前 执行一次</td>
+</tr>
+<tr>
+<td>@AfterClass</td>
+<td>@AfterAll</td>
+<td>该方法在当前类中所有使用@Test 的方法之后 执行一次</td>
+</tr>
+<tr>
+<td>@Before</td>
+<td>@BeforeEach</td>
+<td>该方法在当前类中每一个使用了@Test方法之前 执行一次</td>
+</tr>
+<tr>
+<td>@After</td>
+<td>@AfterEach</td>
+<td>该方法在当前类中每一个使用了@Test方法之后执行一次</td>
+</tr>
+<tr>
+<td>@Ignore</td>
+<td>@Disabled</td>
+<td>该方法表示不执行(关闭)该测试方法</td>
+</tr>
+<tr>
+<td>@Parameters</td>
+<td>@ParameterizedTest</td>
+<td>该方法是用于参数化数据的</td>
+</tr>
+</tbody></table>
+<!-- junit5运行支持的jdk版本 jdk1.8及以上的版本 -->
+
+<h5 id="1、-DisplayName自定义名称"><a href="#1、-DisplayName自定义名称" class="headerlink" title="1、@DisplayName自定义名称"></a>1、@DisplayName自定义名称</h5><p><img src="E:%5C2020%5Cjavabk%5Cpic%5CQQ%E6%88%AA%E5%9B%BE20200516231012.png" alt="QQ截图20200516231012"></p>
+<h4 id="二、Junit5架构与简述"><a href="#二、Junit5架构与简述" class="headerlink" title="二、Junit5架构与简述"></a>二、Junit5架构与简述</h4><p>Junit5 与以前的JUnit版本不同，JUnit 5由来自三个不同子项目的几个不同模块组成。</p>
+<p><strong>JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage</strong></p>
+<ul>
+<li><p>JUnit Platform</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">作用于JVM上启动测试框架。还定义了开发在平台上运行的测试框架的TestEngine API。开发或测试人员可从命令行启动平台，实现基于JUnit 4的运行。JUnit Platform同时也支持Gradle、Maven和Ant来运行。</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>JUnit Jupiter</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用于在JUnit 5中编写测试和扩展的新编程模型和扩展机制。Jupiter子项目提供了一个测试引擎，用于在平台上运行基于Jupiter的测试。</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>JUnit Vintage</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是Junit5提供了一个兼容机制，使得基于JUnit 3和JUnit 4的测试脚本都可以在此运行。</span><br></pre></td></tr></table></figure>
+
+
+
+
+</li>
+</ul>
+<h4 id="三、JUnit-5断言"><a href="#三、JUnit-5断言" class="headerlink" title="三、JUnit 5断言"></a>三、JUnit 5断言</h4><p>用来对满足的条件进行验证，断言方法都是静态方法。<br> 一下介绍几个常用的基本断言方法</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>assertEquals</td>
+<td>判断两个对象或两个原始类型是否相等</td>
+</tr>
+<tr>
+<td>assertNotEquals</td>
+<td>判断两个对象或两个原始类型是否不相等</td>
+</tr>
+<tr>
+<td>assertSame</td>
+<td>判断两个对象引用是否指向同一个对象</td>
+</tr>
+<tr>
+<td>assertTrue</td>
+<td>判断给定的布尔值是否为 true</td>
+</tr>
+<tr>
+<td>assertFalse</td>
+<td>判断给定的布尔值是否为 false</td>
+</tr>
+<tr>
+<td>assertNull</td>
+<td>判断给定的对象引用是否为 null</td>
+</tr>
+<tr>
+<td>assertNotNull</td>
+<td>判断给定的对象引用是否不为 null</td>
+</tr>
+</tbody></table>
+<h4 id="四、关于assertThat"><a href="#四、关于assertThat" class="headerlink" title="四、关于assertThat"></a>四、关于assertThat</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Hamcrest 是一个测试辅助工具，提供了一套通用的匹配符 Matcher，灵活使用这些匹配符定义的规则，程序员可以更加精确的表达自己的测试思想，指定所想设定的测试条件。</span><br><span class="line">Junit4结合Hamcrest提供了新的断言语句-assertThat，只需一个assertThat语句，结合Hamcrest提供的匹配符，就可以表达全部的测试思想。</span><br><span class="line">assertThat的基本语法如下：</span><br><span class="line"></span><br><span class="line">assertThat(T actual, Matcher matcher)</span><br><span class="line">assertThat(String reason, T actual, Matcher matcher)</span><br><span class="line"></span><br><span class="line">actual 是接下来想要验证的值；</span><br><span class="line">matcher是使用 Hamcrest 匹配符来表达的对前面变量所期望的值的声明，如果 actual值与 matcher 所表达的期望值相符，则断言成功，否则断言失败。</span><br><span class="line">reason是自定义的断言失败时显示的信息。</span><br><span class="line">一个简单的例子：</span><br><span class="line">&#x2F;&#x2F; 如果测试的字符串testedString包含子字符串&quot;taobao&quot;则断言成功</span><br><span class="line">assertThat( testedString, containsString( &quot;taobao&quot; ) );</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.junit.Assert;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.hamcrest.*;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.hamcrest.Matchers.*;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MYTEST</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="comment">//一般匹配符</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> s = <span class="keyword">new</span> T().add(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//allOf：所有条件必须都成立，测试才通过</span></span><br><span class="line"></span><br><span class="line">assertThat(s, allOf(greaterThan(<span class="number">1</span>), lessThan(<span class="number">3</span>)));</span><br><span class="line"></span><br><span class="line"><span class="comment">//anyOf：只要有一个条件成立，测试就通过</span></span><br><span class="line"></span><br><span class="line">assertThat(s, anyOf(greaterThan(<span class="number">1</span>), lessThan(<span class="number">1</span>)));</span><br><span class="line"></span><br><span class="line"><span class="comment">//anything：无论什么条件，测试都通过</span></span><br><span class="line"></span><br><span class="line">assertThat(s, anything());</span><br><span class="line"><span class="comment">//is：变量的值等于指定值时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(s, is(<span class="number">2</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//not：和is相反，变量的值不等于指定值时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(s, not(<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="comment">//数值匹配符</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> d = <span class="number">5.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//closeTo：浮点型变量的值在3.0±0.5范围内，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(d, closeTo(<span class="number">3.0</span>, <span class="number">0.5</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//greaterThan：变量的值大于指定值时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(d, greaterThan(<span class="number">3.0</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//lessThan：变量的值小于指定值时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(d, lessThan(<span class="number">3.5</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//greaterThanOrEuqalTo：变量的值大于等于指定值时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(d, greaterThanOrEqualTo(<span class="number">3.3</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//lessThanOrEqualTo：变量的值小于等于指定值时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(d, lessThanOrEqualTo(<span class="number">3.4</span>));</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串匹配符</span></span><br><span class="line"></span><br><span class="line">String n = <span class="keyword">new</span> T().getName(<span class="string">"Magci"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//containsString：字符串变量中包含指定字符串时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(n, containsString(<span class="string">"ci"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//startsWith：字符串变量以指定字符串开头时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(n, startsWith(<span class="string">"Ma"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//endsWith：字符串变量以指定字符串结尾时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(n, endsWith(<span class="string">"i"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//euqalTo：字符串变量等于指定字符串时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(n, equalTo(<span class="string">"Magci"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//equalToIgnoringCase：字符串变量在忽略大小写的情况下等于指定字符串时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(n, equalToIgnoringCase(<span class="string">"magci"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//equalToIgnoringWhiteSpace：字符串变量在忽略头尾任意空格的情况下等于指定字符串时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(n, equalToIgnoringWhiteSpace(<span class="string">" Magci "</span>));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//集合匹配符</span></span><br><span class="line"></span><br><span class="line">List&lt;String&gt; l = <span class="keyword">new</span> T().getList(<span class="string">"Magci"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//hasItem：Iterable变量中含有指定元素时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(l, hasItem(<span class="string">"Magci"</span>));</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">Map&lt;String, String&gt; m = <span class="keyword">new</span> T().getMap(<span class="string">"mgc"</span>, <span class="string">"Magci"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//hasEntry：Map变量中含有指定键值对时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(m, hasEntry(<span class="string">"mgc"</span>, <span class="string">"Magci"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//hasKey：Map变量中含有指定键时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(m, hasKey(<span class="string">"mgc"</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">//hasValue：Map变量中含有指定值时，测试通过</span></span><br><span class="line"></span><br><span class="line">assertThat(m, hasValue(<span class="string">"Magci"</span>));</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">最坑的就是这几个jar 的版本了，，</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">&lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">&lt;version&gt;4.5&lt;/version&gt;</span><br><span class="line">&lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- https:<span class="comment">//mvnrepository.com/artifact/org.hamcrest/hamcrest-core --&gt;</span></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.hamcrest&lt;/groupId&gt;</span><br><span class="line">&lt;artifactId&gt;hamcrest-core&lt;/artifactId&gt;</span><br><span class="line">&lt;version&gt;1.3.RC2&lt;/version&gt;</span><br><span class="line">&lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- https:<span class="comment">//mvnrepository.com/artifact/org.hamcrest/hamcrest-library --&gt;</span></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">&lt;groupId&gt;org.hamcrest&lt;/groupId&gt;</span><br><span class="line">&lt;artifactId&gt;hamcrest-library&lt;/artifactId&gt;</span><br><span class="line">&lt;version&gt;1.3.RC2&lt;/version&gt;</span><br><span class="line">&lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<!--Hamcrest是用于Java的单元测试的框架，它使用`matcher`匹配器来进行断言。在Spring-boot-starter中集成了Hamcrest,无需而外引入。-->
+
+<h4 id="五、JUnit-5前置条件"><a href="#五、JUnit-5前置条件" class="headerlink" title="五、JUnit 5前置条件"></a>五、JUnit 5前置条件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JUnit 5 中的前置条件（assumptions）类似于断言，不同之处在于不满足的断言会使得测试方法失败，而不满足的前置条件只会使得测试方法的执行终止。前置条件可以看成是测试方法执行的前提，当该前提不满足时，就没有继续执行的必要。在如下案例中，assumeTrue 和 assumFalse 确保给定的条件为 true 或 false，不满足条件会使得测试执行终止。assumingThat 的参数是表示条件的布尔值和对应的 Executable 接口的实现对象。只有条件满足时，Executable 对象才会被执行；当条件不满足时，测试执行并不会终止。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DisplayName</span>(<span class="string">"Assumptions"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AssumptionsTest</span> </span>&#123;</span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">final</span> String environment = <span class="string">"DEV"</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="meta">@Test</span></span><br><span class="line"> <span class="meta">@DisplayName</span>(<span class="string">"simple"</span>)</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">simpleAssume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assumeTrue(Objects.equals(<span class="keyword">this</span>.environment, <span class="string">"DEV"</span>));</span><br><span class="line">    assumeFalse(() -&gt; Objects.equals(<span class="keyword">this</span>.environment, <span class="string">"PROD"</span>));</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="meta">@Test</span></span><br><span class="line"> <span class="meta">@DisplayName</span>(<span class="string">"assume then do"</span>)</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">assumeThenDo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assumingThat(</span><br><span class="line">       Objects.equals(<span class="keyword">this</span>.environment, <span class="string">"DEV"</span>),</span><br><span class="line">       () -&gt; System.out.println(<span class="string">"In DEV"</span>)</span><br><span class="line">    );</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>断言执行</strong></p>
+<p><img src="E:%5C2020%5Cjavabk%5Cpic%5CQQ%E6%88%AA%E5%9B%BE20200517220507.png" alt=""></p>
+<p><strong>前置条件执行</strong></p>
+<p><img src="E:%5C2020%5Cjavabk%5Cpic%5CQQ%E6%88%AA%E5%9B%BE20200517220427.png" alt="QQ截图20200517220427"></p>
+<h4 id="六、-Runwith"><a href="#六、-Runwith" class="headerlink" title="六、@Runwith"></a>六、@Runwith</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@runWith注解作用：</span><br><span class="line">--@RunWith就是一个运行器</span><br><span class="line">--@RunWith(JUnit4.class)就是指用JUnit4来运行</span><br><span class="line">--@RunWith(SpringJUnit4ClassRunner.class)，让测试运行于Spring测试环 境，以便在测试开始的时候自动创建Spring的应用上下文</span><br><span class="line">--@RunWith(Suite.class)的话就是一套测试集合</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h4><p>IBM Developer：<a href="https://www.ibm.com/developerworks/cn/java/j-junit5/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/java/j-junit5/</a></p>
+<p>junit5学习心得：<a href="https://www.jianshu.com/p/675b74549f77" target="_blank" rel="noopener">https://www.jianshu.com/p/675b74549f77</a></p>
+<p>Junit4中的新断言assertThat的使用方法：<a href="https://blog.csdn.net/smxjant/article/details/78206435" target="_blank" rel="noopener">https://blog.csdn.net/smxjant/article/details/78206435</a></p>
+<p>Hamcrest：<a href="https://www.jianshu.com/p/e7d4c3bdac6e" target="_blank" rel="noopener">https://www.jianshu.com/p/e7d4c3bdac6e</a></p>
+<p>junit5 入门系列教程-14-junit5 参数化测试(@ParameterizedTest)：<a href="https://blog.csdn.net/ryo1060732496/article/details/80823696#使用参数" target="_blank" rel="noopener">https://blog.csdn.net/ryo1060732496/article/details/80823696#使用参数</a></p>
+<p>Junit5中实现参数化测试：<a href="https://www.jianshu.com/p/477f2ded7ccc" target="_blank" rel="noopener">https://www.jianshu.com/p/477f2ded7ccc</a></p>
+<p>Junit5(一) – 参数化测试数据来源：<a href="https://blog.csdn.net/weixin_43495590/article/details/103307003" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43495590/article/details/103307003</a></p>
+<p>Springboot测试类之@RunWith注解：<a href="https://www.cnblogs.com/qingmuchuanqi48/p/11886618.html" target="_blank" rel="noopener">https://www.cnblogs.com/qingmuchuanqi48/p/11886618.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/2020/06/03/javaEE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rarcard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/av.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/03/javaEE/" itemprop="url">javaEE</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-03T19:42:27+08:00">
+                2020-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="javaEE"><a href="#javaEE" class="headerlink" title="javaEE"></a>javaEE</h2><h3 id="一、fastjson"><a href="#一、fastjson" class="headerlink" title="一、fastjson"></a>一、fastjson</h3><h4 id="1、fastjson是什么？"><a href="#1、fastjson是什么？" class="headerlink" title="1、fastjson是什么？"></a>1、fastjson是什么？</h4><p>Fastjson 是一个 Java 库，可以将 Java 对象转换为 JSON 格式，当然它也可以将 JSON 字符串转换为 Java 对象。</p>
+<p>Fastjson 可以操作任何 Java 对象，即使是一些预先存在的没有源码的对象。</p>
+<h4 id="2、fastjson-特性"><a href="#2、fastjson-特性" class="headerlink" title="2、fastjson 特性"></a>2、fastjson 特性</h4><ul>
+<li>提供服务器端，安卓端两种解析工具，性能表现比较好。</li>
+<li>提供了 <strong>toJSONString()</strong> 和 <strong>parseObject()</strong> 方法来将 Java 对象与 JSON 相互转换。调用toJSONString方 法即可将对象转换成 JSON 字符串，parseObject 方法则反过来将 JSON 字符串转换成对象。</li>
+<li>允许转换预先存在的无法修改的对象（只有class、无源代码）。</li>
+<li>Java泛型的广泛支持。</li>
+<li>允许对象的自定义表示、允许自定义序列化类。</li>
+<li>支持任意复杂对象（具有深厚的继承层次和广泛使用的泛型类型）。</li>
+</ul>
+<h3 id="二、ajax"><a href="#二、ajax" class="headerlink" title="二、ajax"></a>二、ajax</h3><h4 id="1、什么是ajax"><a href="#1、什么是ajax" class="headerlink" title="1、什么是ajax?"></a>1、什么是ajax?</h4><p>AJAX = Asynchronous JavaScript and XML（<strong>异步的 JavaScript 和 XML</strong>）。</p>
+<p>AJAX 不是新的编程语言，而是一种使用现有标准的新方法。</p>
+<p><strong>AJAX 最大的优点是在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容。</strong></p>
+<p>AJAX 不需要任何浏览器插件，但需要用户允许JavaScript在浏览器上执行。</p>
+<h2 id="Spring基础知识"><a href="#Spring基础知识" class="headerlink" title="Spring基础知识"></a>Spring基础知识</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用Spring框架编写应用程序之所以很简单，是因为有Spring容器帮程序员处理了大量繁琐的过程，可以说Spring 容器是 Spring 框架的核心。那Spring容器到底是什么？</span><br></pre></td></tr></table></figure>
+
+<p><strong>从概念上讲</strong>：Spring 容器是 Spring 框架的核心，是用来管理对象的。容器将创建对象，把它们连接在一起，配置它们，并管理他们的整个生命周期从创建到销毁。<br><strong>从具象化讲</strong>：在java项目中，我们使用实现了org.springframework.context.ApplicationContext接口的实现类。在web项目中，我们使用spring.xml——Spring的配置文件。<br><strong>从代码上讲</strong>：一个Spring容器就是某个实现了ApplicationContext接口的类的实例。也就是说，从代码层面，Spring容器其实就是一个ApplicationContext（一个实例化对象）。</p>
+<h3 id="一、Spring工作原理"><a href="#一、Spring工作原理" class="headerlink" title="一、Spring工作原理"></a>一、Spring工作原理</h3><p>Spring的工作原理就是让一个对象的创建不用new就可以自动的生产，在运行时与xml Spring的配置文件来动态的创建对象和调用对象，而不需要通过代码来关联</p>
+<p><img src="https://pics6.baidu.com/feed/f3d3572c11dfa9ec649f5e4e06206d07908fc12f.jpeg?token=61de63876d3ba33bbd6166fa468c01e2&s=49A8347287B244235E7D41DE000080B1" alt="img"></p>
+<h4 id="1、Spring的概念"><a href="#1、Spring的概念" class="headerlink" title="1、Spring的概念"></a>1、Spring的概念</h4><p>Spring是一种多层的J2EE应用程序框架，<strong>其核心就是提供一种新的机制管理业务对象及其依赖关系</strong>。它是一种容器框架，用于创建bean，维护bean之间的关系，它可以管理web层，持久层，业务层等，可以配置各个层的组件并且维护各个层的关系</p>
+<h4 id="2、Spring特点"><a href="#2、Spring特点" class="headerlink" title="2、Spring特点"></a>2、Spring特点</h4><p>（1）轻量级：轻量级是针对重量级容器（EJB）来说的，Spring的核心包就不到1M大小，而使用Spring的核心包所需的资源也很小，所以可以在小型设备中使用。</p>
+<p>（2）非入侵式：Spring目标是一个非入侵式的服务框架。原因是所有框架都是提供大量的功能供用户去使用，从而简化开发时间和成本，但由于大量的使用了框架的API，使应用程序和框架发生了大量的依赖性，无法从框架中独立出来，更加无法使程序组件在其他程序中使用。</p>
+<p>（3）容器：Spring提供了容器功能，容器可以管理对象的生命周期、对象与对象间的关系、我们可以通过编写XML来设置对象关系和初始值，这样容器在启动之后，所有的对象都直接可以使用，不用编写任何编码来产生对象。Spring有两种不同的容器：Bean工厂以及应用上下文</p>
+<h4 id="3、Spring工作原理"><a href="#3、Spring工作原理" class="headerlink" title="3、Spring工作原理"></a>3、Spring工作原理</h4><p>Spring内部最核心的就是IOC了，动态注入，让一个对象的创建不用new了，可以自动的生产，这其实就是利用java里的反射，反射其实就是在运行时动态的去创建、调用对象，Spring就是在运行时，跟xml Spring的配置文件来动态的创建对象和调用对象里的方法的 。</p>
+<p>Spring还有一个核心就是AOP面向切面编程，可以为某一类对象进行监督和控制（也就是在调用这类对象的具体方法的前后去调用你指定的模块）从而达到对一个模块扩充的功能。这些都是通过配置类达到的。</p>
+<p>Spring目地就是让对象与对象（模块与模块）之间的关系没有通过代码来关联，都是通过配置类说明管理的</p>
+<h2 id="Springboot常用注解"><a href="#Springboot常用注解" class="headerlink" title="Springboot常用注解"></a>Springboot常用注解</h2><h3 id="一、测试类"><a href="#一、测试类" class="headerlink" title="一、测试类"></a>一、测试类</h3><h4 id="1、-SpringBootTest"><a href="#1、-SpringBootTest" class="headerlink" title="1、@SpringBootTest"></a>1、@SpringBootTest</h4><p>启动spring容器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@SpringBootTest替代了spring-test中的@ContextConfiguration注解，目的是加载ApplicationContext，启动spring容器。</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="refer"><a href="#refer" class="headerlink" title="refer"></a>refer</h2><p>SpringBoot Test及注解详解：<a href="https://www.cnblogs.com/myitnews/p/12330297.html" target="_blank" rel="noopener">https://www.cnblogs.com/myitnews/p/12330297.html</a></p>
+<p>spring容器：<a href="https://www.jianshu.com/p/6a2100dd6532" target="_blank" rel="noopener">https://www.jianshu.com/p/6a2100dd6532</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/2020/06/03/Java%20Serializable(%E5%BA%8F%E5%88%97%E5%8C%96)%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rarcard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/av.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/03/Java%20Serializable(%E5%BA%8F%E5%88%97%E5%8C%96)%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/" itemprop="url">Java Serializable(序列化)的理解和总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-03T19:41:51+08:00">
+                2020-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Java-Serializable-序列化-的理解和总结"><a href="#Java-Serializable-序列化-的理解和总结" class="headerlink" title="Java Serializable(序列化)的理解和总结"></a>Java Serializable(序列化)的理解和总结</h2><h3 id="一、Java-序列化"><a href="#一、Java-序列化" class="headerlink" title="一、Java 序列化"></a>一、Java 序列化</h3><h4 id="1、序列化是干什么的"><a href="#1、序列化是干什么的" class="headerlink" title="1、序列化是干什么的"></a>1、序列化是干什么的</h4><p>  简单说就是为了保存在内存中的各种对象的状态（也就是实例变量，不是方法），并且可以把保存的对象状态再读出来。虽然你可以用你自己的各种各样的方法来保存object states，但是Java给你提供一种应该比你自己好的保存对象状态的机制，那就是序列化。</p>
+<h4 id="2、什么情况需要序列化"><a href="#2、什么情况需要序列化" class="headerlink" title="2、什么情况需要序列化"></a>2、什么情况需要序列化</h4><ul>
+<li>当你想要把内存中的对象状态保存到一个文件中或者数据库中的时候；  </li>
+<li>当你想要用套接字在网络上传送对象的时候；</li>
+<li>当你想通过RMI传输对象的时候；</li>
+</ul>
+<h4 id="3、对一个对象实现序列化时，究竟发生了什么？"><a href="#3、对一个对象实现序列化时，究竟发生了什么？" class="headerlink" title="3、对一个对象实现序列化时，究竟发生了什么？"></a>3、对一个对象实现序列化时，究竟发生了什么？</h4><p>在没有序列化前，每个保存在堆（Heap）中的对象都有相应的状态（state），即实例变量（instance ariable）比如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Foo  myFoo = <span class="keyword">new</span> Foo();  </span><br><span class="line">myFoo .setWidth(<span class="number">37</span>);  </span><br><span class="line">myFoo.setHeight(<span class="number">70</span>);</span><br></pre></td></tr></table></figure>
+
+<p>当通过下面的代码序列化之后，MyFoo对象中的width和Height实例变量的值（37，70）都被保存到foo.ser文件中，这样以后又可以把它从文件中读出来，重新在堆中创建原来的对象。当然保存时候不仅仅是保存对象的实例变量的值，JVM还要保存一些小量信息，比如类的类型等以便恢复原来的对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FileOutputStream fs = <span class="keyword">new</span> FileOutputStream(<span class="string">"foo.ser"</span>);  </span><br><span class="line">ObjectOutputStream os = <span class="keyword">new</span> ObjectOutputStream(fs);  </span><br><span class="line">os.writeObject(myFoo);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="二、序列化深度理解"><a href="#二、序列化深度理解" class="headerlink" title="二、序列化深度理解"></a>二、序列化深度理解</h3><p>Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，该字节序列包括该对象的数据、有关对象的类型的信息和存储在对象中数据的类型。</p>
+<p>将序列化对象写入文件之后，可以从文件中读取出来，并且对它进行反序列化，也就是说，对象的类型信息、对象的数据，还有对象中的数据类型可以用来在内存中新建对象。</p>
+<p>整个过程都是 Java 虚拟机（JVM）独立的，也就是说，在一个平台上序列化的对象可以在另一个完全不同的平台上反序列化该对象。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/2020/06/03/Ajax()/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rarcard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/av.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/03/Ajax()/" itemprop="url">Ajax()</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-03T19:41:12+08:00">
+                2020-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Ajax-数据异步传输"><a href="#Ajax-数据异步传输" class="headerlink" title="Ajax() 数据异步传输"></a>Ajax() 数据异步传输</h2><h3 id="一、Jquery-ajax-参数"><a href="#一、Jquery-ajax-参数" class="headerlink" title="一、Jquery ajax() 参数"></a>一、Jquery ajax() 参数</h3><h4 id="1、type："><a href="#1、type：" class="headerlink" title="1、type："></a>1、type：</h4><p>要求为String类型的参数，请求方式（post或get）默认为get。注意其他http请求方法，例如put和delete也可以使用，但仅部分浏览器支持。</p>
+<h4 id="2、timeout："><a href="#2、timeout：" class="headerlink" title="2、timeout："></a>2、timeout：</h4><p>要求为Number类型的参数，设置请求超时时间（毫秒）。此设置将覆盖$.ajaxSetup()方法的全局设置。</p>
+<h4 id="3、async："><a href="#3、async：" class="headerlink" title="3、async："></a>3、async：</h4><p>要求为Boolean类型的参数，默认设置为true，所有请求均为异步请求。如果需要发送同步请求，请将此选项设置为false。注意，同步请求将锁住浏览器，用户其他操作必须等待请求完成才可以执行。</p>
+<h4 id="4、cache："><a href="#4、cache：" class="headerlink" title="4、cache："></a>4、cache：</h4><p>要求为Boolean类型的参数，默认为true（当dataType为script时，默认为false），设置为false将不会从浏览器缓存中加载请求信息。</p>
+<h4 id="5、data："><a href="#5、data：" class="headerlink" title="5、data："></a>5、data：</h4><p>要求为Object或String类型的参数，发送到服务器的数据。如果已经不是字符串，将自动转换为字符串格式。get请求中将附加在url后。防止这种自动转换，可以查看　　processData选项。对象必须为key/value格式，例如{foo1:”bar1”,foo2:”bar2”}转换为&amp;foo1=bar1&amp;foo2=bar2。如果是数组，JQuery将自动为不同值对应同一个名称。例如{foo:[“bar1”,”bar2”]}转换为&amp;foo=bar1&amp;foo=bar2。</p>
+<h4 id="6、datatype："><a href="#6、datatype：" class="headerlink" title="6、datatype："></a>6、datatype：</h4><p><strong>要求为String类型的参数，预期服务器返回的数据类型</strong>。如果不指定，JQuery将自动根据http包mime信息返回responseXML或responseText，并作为回调函数参数传递。可用的类型如下：</p>
+<ul>
+<li>xml：返回XML文档，可用JQuery处理。</li>
+<li>html：返回纯文本HTML信息；包含的script标签会在插入DOM时执行。<br>script：返回纯文本JavaScript代码。不会自动缓存结果。除非设置了cache参数。注意在远程请求时（不在同一个域下），所有post请求都将转为get请求。</li>
+<li>json：返回JSON数据。</li>
+<li>jsonp：JSONP格式。使用SONP形式调用函数时，例如myurl?callback=?，JQuery将自动替换后一个“?”为正确的函数名，以执行回调函数。<br>text：返回纯文本字符串。</li>
+</ul>
+<h4 id="7、success："><a href="#7、success：" class="headerlink" title="7、success："></a>7、success：</h4><p>要求为Function类型的参数，请求成功后调用的回调函数，有两个参数。<br>         (1)由服务器返回，并根据dataType参数进行处理后的数据。<br>         (2)描述状态的字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">data, textStatus</span>)</span>&#123;</span><br><span class="line">      <span class="comment">//data可能是xmlDoc、jsonObj、html、text等等</span></span><br><span class="line">      <span class="keyword">this</span>;  <span class="comment">//调用本次ajax请求时传递的options参数</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8、error："><a href="#8、error：" class="headerlink" title="8、error："></a>8、error：</h4><p>要求为Function类型的参数，请求失败时被调用的函数。该函数有3个参数，即XMLHttpRequest对象、错误信息、捕获的错误对象(可选)。ajax事件函数如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">XMLHttpRequest, textStatus, errorThrown</span>)</span>&#123;</span><br><span class="line">         <span class="comment">//通常情况下textStatus和errorThrown只有其中一个包含信息</span></span><br><span class="line">         <span class="keyword">this</span>;   <span class="comment">//调用本次ajax请求时传递的options参数</span></span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9、contentType："><a href="#9、contentType：" class="headerlink" title="9、contentType："></a>9、contentType：</h4><p><strong>要求为String类型的参数，当发送信息至服务器时，内容编码类型默认为”application/x-www-form-urlencoded”。该默认值适合大多数应用场合。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">contentType 主要设置你发送给服务器的格式，dataType设置你收到服务器数据的格式。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="二、JSON"><a href="#二、JSON" class="headerlink" title="二、JSON"></a>二、JSON</h3><h4 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h4><p>javascript对象表示法（<strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation）；</p>
+<p>存储和交换文本信息的语法。类似XML。</p>
+<p>比XML更小、更快、更易解析。</p>
+<h4 id="2、语法规则"><a href="#2、语法规则" class="headerlink" title="2、语法规则"></a>2、语法规则</h4><ul>
+<li><p>数组（Array）用方括号（”[]”）表示。</p>
+</li>
+<li><p>对象（Object）用大括号（”{}”）表示。</p>
+</li>
+<li><p>名称/值对（name/value）组合成数组和对象。</p>
+</li>
+<li><p>名称（name）置于双引号中，值（value）有字符串、数值、布尔、null 、对象和数组。</p>
+</li>
+<li><p>并列的数据之间用逗号（”,”）分开。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//json对象</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"Geoff Lui"</span>,</span><br><span class="line">    <span class="string">"age"</span>: <span class="number">26</span>,</span><br><span class="line">    <span class="string">"isChinese"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//“名称/值对”里，值可以是数组和对象，例如：</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"Geoff Lui"</span>,</span><br><span class="line">    <span class="string">"age"</span>: <span class="number">26</span>,</span><br><span class="line">    <span class="string">"isChinese"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"friends"</span>:[<span class="string">"Lucy"</span>, <span class="string">"Lily"</span>, <span class="string">"Gwen"</span>],</span><br><span class="line">    <span class="string">"Mother"</span>: &#123;</span><br><span class="line">        <span class="string">"name"</span>: <span class="string">"Mary Lui"</span>,</span><br><span class="line">        <span class="string">"age"</span>: <span class="number">54</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/2020/06/03/java%E6%8B%BE%E9%81%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rarcard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/av.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/03/java%E6%8B%BE%E9%81%97/" itemprop="url">java拾遗</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-03T19:40:46+08:00">
+                2020-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="java拾遗"><a href="#java拾遗" class="headerlink" title="java拾遗"></a>java拾遗</h2><h4 id="1、位运算"><a href="#1、位运算" class="headerlink" title="1、位运算"></a>1、位运算</h4><p>下表列出了位运算符的基本运算,假设整数变量A的值为60和变量B的值为13：</p>
+<table>
+<thead>
+<tr>
+<th align="left">操作符</th>
+<th align="left">描述</th>
+<th align="left">例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">＆</td>
+<td align="left">如果相对应位都是1，则结果为1，否则为0</td>
+<td align="left">（A＆B），得到12，即0000 1100</td>
+</tr>
+<tr>
+<td align="left">|</td>
+<td align="left">如果相对应位都是0，则结果为0，否则为1</td>
+<td align="left">（A | B）得到61，即 0011 1101</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left">如果相对应位值相同，则结果为0，否则为1</td>
+<td align="left">（A ^ B）得到49，即 0011 0001</td>
+</tr>
+<tr>
+<td align="left">〜</td>
+<td align="left">按位取反运算符翻转操作数的每一位，即0变成1，1变成0。</td>
+<td align="left">（〜A）得到-61，即1100 0011</td>
+</tr>
+<tr>
+<td align="left">&lt;&lt;</td>
+<td align="left">按位左移运算符。左操作数按位左移右操作数指定的位数。</td>
+<td align="left">A &lt;&lt; 2得到240，即 1111 0000</td>
+</tr>
+<tr>
+<td align="left">&gt;&gt;</td>
+<td align="left">按位右移运算符。左操作数按位右移右操作数指定的位数。</td>
+<td align="left">A &gt;&gt; 2得到15即 1111</td>
+</tr>
+<tr>
+<td align="left">&gt;&gt;&gt;</td>
+<td align="left">按位右移补零操作符。左操作数的值按右操作数指定的位数右移，移动得到的空位以零填充。</td>
+<td align="left">A&gt;&gt;&gt;2得到15即0000 1111</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">int</span> a = <span class="number">60</span>; <span class="comment">/* 60 = 0011 1100 */</span> </span><br><span class="line">     <span class="keyword">int</span> b = <span class="number">13</span>; <span class="comment">/* 13 = 0000 1101 */</span></span><br><span class="line">     <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">     c = a &amp; b;       <span class="comment">/* 12 = 0000 1100 */</span></span><br><span class="line">     System.out.println(<span class="string">"a &amp; b = "</span> + c );</span><br><span class="line"> </span><br><span class="line">     c = a | b;       <span class="comment">/* 61 = 0011 1101 */</span></span><br><span class="line">     System.out.println(<span class="string">"a | b = "</span> + c );</span><br><span class="line"> </span><br><span class="line">     c = a ^ b;       <span class="comment">/* 49 = 0011 0001 */</span></span><br><span class="line">     System.out.println(<span class="string">"a ^ b = "</span> + c );</span><br><span class="line"> </span><br><span class="line">     c = ~a;          <span class="comment">/*-61 = 1100 0011 */</span></span><br><span class="line">     System.out.println(<span class="string">"~a = "</span> + c );</span><br><span class="line"> </span><br><span class="line">     c = a &lt;&lt; <span class="number">2</span>;     <span class="comment">/* 240 = 1111 0000 */</span></span><br><span class="line">     System.out.println(<span class="string">"a &lt;&lt; 2 = "</span> + c );</span><br><span class="line"> </span><br><span class="line">     c = a &gt;&gt; <span class="number">2</span>;     <span class="comment">/* 15 = 1111 */</span></span><br><span class="line">     System.out.println(<span class="string">"a &gt;&gt; 2  = "</span> + c );</span><br><span class="line">  </span><br><span class="line">     c = a &gt;&gt;&gt; <span class="number">2</span>;     <span class="comment">/* 15 = 0000 1111 */</span></span><br><span class="line">     System.out.println(<span class="string">"a &gt;&gt;&gt; 2 = "</span> + c );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a &amp; b = <span class="number">12</span></span><br><span class="line">a | b = <span class="number">61</span></span><br><span class="line">a ^ b = <span class="number">49</span></span><br><span class="line">~a = -<span class="number">61</span></span><br><span class="line">a &lt;&lt; <span class="number">2</span> = <span class="number">240</span></span><br><span class="line">a &gt;&gt; <span class="number">2</span>  = <span class="number">15</span></span><br><span class="line">a &gt;&gt;&gt; <span class="number">2</span> = <span class="number">15</span></span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/2020/06/03/java%E5%BC%BA%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rarcard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/av.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/03/java%E5%BC%BA%E5%8C%96/" itemprop="url">java强化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-03T19:40:30+08:00">
+                2020-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="java强化"><a href="#java强化" class="headerlink" title="java强化"></a>java强化</h2><h3 id="一、线程池"><a href="#一、线程池" class="headerlink" title="一、线程池"></a>一、线程池</h3><p><strong>定义：</strong>为了<strong>避免重复的创建线程</strong>，线程池的出现可以<strong>让线程进行复用</strong>。通俗点讲，当有工作来，就会向线程池拿一个线程，当工作完成后，并不是直接关闭线程，而是将这个线程归还给线程池供其他任务使用。</p>
+<h3 id="二、迭代器"><a href="#二、迭代器" class="headerlink" title="二、迭代器"></a>二、迭代器</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> statics;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestList</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">"aa"</span>);</span><br><span class="line">        list.add(<span class="string">"bb"</span>);</span><br><span class="line">        list.add(<span class="string">"cc"</span>);</span><br><span class="line">        list.add(<span class="string">"aa"</span>);</span><br><span class="line">        Iterator&lt;String&gt; it = list.iterator();</span><br><span class="line">        <span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">            String str = (String)it.next();</span><br><span class="line">            <span class="keyword">if</span>(<span class="string">"aa"</span>.equals(str))&#123;</span><br><span class="line">                it.remove();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(list.size());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong></p>
+<p>这种方式可以正常的循环及删除。但要注意的是，<strong>要使用iterator的remove方法</strong>，如果用list的remove方法同样会报上面提到的ConcurrentModificationException错误。</p>
+<h4 id="小知识"><a href="#小知识" class="headerlink" title="小知识"></a>小知识</h4><p>已经分配有内存的对象就叫做对象的实例。有<a href="https://www.baidu.com/s?wd=分配内存&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">分配内存</a>才表明这个对象确实存在。</p>
+<h3 id="三、I-o操作"><a href="#三、I-o操作" class="headerlink" title="三、I/o操作"></a>三、I/o操作</h3><h4 id="3-1文件创建"><a href="#3-1文件创建" class="headerlink" title="3.1文件创建"></a>3.1文件创建</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CreateFile</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        File file=<span class="keyword">new</span> File(<span class="string">"E:/2019 junior/java/document/test2.txt"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(file.createNewFile())&#123;</span><br><span class="line">                System.out.println(<span class="string">"文件创建成功"</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"创建失败"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="小知识-1"><a href="#小知识-1" class="headerlink" title="小知识"></a>小知识</h5><p>flush()把缓冲区的内容强制的写出</p>
+<p><strong>字节流：一切文件，纯文本、音频、视频</strong></p>
+<p><strong>字符流：纯文本</strong></p>
+<h4 id="3-2-函数"><a href="#3-2-函数" class="headerlink" title="3.2 函数"></a>3.2 函数</h4><p><strong>1、length()获取 文件长度</strong> 字节数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file=<span class="keyword">new</span> File(<span class="string">"E:/2019 junior/java/document/test2.txt"</span>);</span><br><span class="line">       System.out.println(file.length());</span><br></pre></td></tr></table></figure>
+
+<p>2、exists()函数判断文件是否存在</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file=<span class="keyword">new</span> File(<span class="string">"E:/2019 junior/java/document/test2.txt"</span>);</span><br><span class="line">       System.out.println(file.exists());</span><br></pre></td></tr></table></figure>
+
+<p>3、delete()删除文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file=<span class="keyword">new</span> File(<span class="string">"E:/2019 junior/java/document/test3.txt"</span>);</span><br><span class="line">        file.delete();</span><br></pre></td></tr></table></figure>
+
+<p>4、mkdir()创建文件夹，确保父目录存在  mkdirs()如果父目录不存在一起创建</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file=<span class="keyword">new</span> File(<span class="string">"E:/2019 junior/java/document/tes"</span>);</span><br><span class="line">      file.mkdir();<span class="comment">//file.mkdirs();</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="小知识-2"><a href="#小知识-2" class="headerlink" title="小知识"></a>小知识</h5><p><strong>字节流</strong></p>
+<p>​    输入流：InputStream</p>
+<p>​    输出流：OutputStream</p>
+<p><strong>字符流</strong></p>
+<p>​    输入流：Reader</p>
+<p>​    输出流：Writer</p>
+<p><strong>5、字节流读</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        File file=<span class="keyword">new</span> File(<span class="string">"E:/2019 junior/java/document/test.txt"</span>);</span><br><span class="line">        FileInputStream f1=<span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">        <span class="keyword">byte</span> in[]=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];<span class="comment">//缓冲数组</span></span><br><span class="line">        <span class="keyword">int</span> len;<span class="comment">//实际读取大小</span></span><br><span class="line">        String str;</span><br><span class="line">        <span class="keyword">while</span>( -<span class="number">1</span>!=(len=f1.read(in)))&#123;</span><br><span class="line">            str=<span class="keyword">new</span> String(in,<span class="number">0</span>,len);</span><br><span class="line">            System.out.println(str);</span><br><span class="line">        &#125;</span><br><span class="line">        f1.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>6、字节流写</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        File file=<span class="keyword">new</span> File(<span class="string">"E:/2019 junior/java/document/test3.txt"</span>);</span><br><span class="line">        FileOutputStream f1=<span class="keyword">new</span> FileOutputStream(file,<span class="keyword">true</span>);<span class="comment">//默认false，即覆盖</span></span><br><span class="line">        <span class="keyword">byte</span> in[]=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];<span class="comment">//缓冲数组</span></span><br><span class="line">        <span class="keyword">int</span> len;<span class="comment">//实际读取大小</span></span><br><span class="line">        String str=<span class="string">"FSFDFDSF我"</span>;</span><br><span class="line">        <span class="keyword">byte</span> out[]=str.getBytes();</span><br><span class="line">        f1.write(out,<span class="number">0</span>,out.length);</span><br><span class="line">        f1.flush();<span class="comment">//强制刷新 </span></span><br><span class="line">        f1.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：缓冲区就像管道一样满了之后才会推出，所以要flush()强制刷新</p>
+<h3 id="四、文件的拷贝"><a href="#四、文件的拷贝" class="headerlink" title="四、文件的拷贝"></a>四、文件的拷贝</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CopyByteStream</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            FileInputStream f1=<span class="keyword">new</span> FileInputStream(<span class="string">"E:/2019 junior/java/document/test2.txt"</span>);</span><br><span class="line">            FileOutputStream f2=<span class="keyword">new</span> FileOutputStream(<span class="string">"E:/2019 junior/java/document/test.txt"</span>);</span><br><span class="line">            <span class="keyword">byte</span> data[]=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">            <span class="keyword">int</span> len=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> ((len=f1.read(data))!=-<span class="number">1</span>)&#123;</span><br><span class="line">                f2.write(data,<span class="number">0</span>,len);</span><br><span class="line">            &#125;</span><br><span class="line">            f2.flush();<span class="comment">//强制刷出</span></span><br><span class="line">            f2.close();</span><br><span class="line">            f1.close();<span class="comment">//先打开的后关闭</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  <strong>重点：f2.write(data,0,len);按实际长度写</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/2020/06/03/%E5%AF%BC%E8%AF%AD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rarcard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/av.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/03/%E5%AF%BC%E8%AF%AD/" itemprop="url">导语</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-03T19:40:01+08:00">
+                2020-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="java导语"><a href="#java导语" class="headerlink" title="java导语"></a>java导语</h2><h3 id="一、java历史"><a href="#一、java历史" class="headerlink" title="一、java历史"></a>一、java历史</h3><h4 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h4><p>Java是一门<a href="https://baike.baidu.com/item/面向对象" target="_blank" rel="noopener">面向对象</a>编程语言，不仅吸收了<a href="https://baike.baidu.com/item/C%2B%2B" target="_blank" rel="noopener">C++</a>语言的各种优点，还摒弃了C++里难以理解的<a href="https://baike.baidu.com/item/多继承" target="_blank" rel="noopener">多继承</a>、<a href="https://baike.baidu.com/item/指针/2878304" target="_blank" rel="noopener">指针</a>等概念，因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程</p>
+<p><strong>关键词</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sun公司 20世纪90年代 加利福利亚 跨平台  二进制机器码指令系统</span><br><span class="line"></span><br><span class="line">Sun公司首先推出了可以嵌入网页并且可以随同网页在网络上传输的Applet（Applet是一种将小程序嵌入到网页中进行执行的技术），并将Oak更名为Java</span><br></pre></td></tr></table></figure>
+
+<p><strong>版本</strong>：<a href="https://blog.csdn.net/J080624/article/details/85259041" target="_blank" rel="noopener">发行</a></p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>名称</th>
+<th>发行日期</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JDK 1.1.8</td>
+<td>Chelsea（切尔西–城市名）</td>
+<td>1999-04-08</td>
+</tr>
+<tr>
+<td>Java SE 8.0 (<strong>1.8.0</strong>)</td>
+<td>Spider（蜘蛛）</td>
+<td>2014-03-18</td>
+</tr>
+<tr>
+<td>Java SE 9.0</td>
+<td></td>
+<td>2017-09-21</td>
+</tr>
+<tr>
+<td>Java SE 10.0</td>
+<td></td>
+<td>2018-03-21</td>
+</tr>
+<tr>
+<td>Java SE 11.0</td>
+<td></td>
+<td>2018-09-25</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JAVA SE 是标准开发和运行环境&#x3D;JDK+JRE</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、jdk"><a href="#2、jdk" class="headerlink" title="2、jdk"></a>2、jdk</h4><p><a href="https://baike.baidu.com/item/JDK/1011" target="_blank" rel="noopener">JDK</a><em>（Java Development Kit）</em>称为Java开发包或Java开发工具，是一个编写Java的Applet小程序和应用程序的程序开发环境。JDK是整个Java的核心，包括了Java运行环境<em>（Java Runtime Environment）</em>，一些Java工具和Java的核心类库<em>（Java API）</em>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JRE是个运行环境，JDK是个开发环境。</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、java各个版本"><a href="#3、java各个版本" class="headerlink" title="3、java各个版本"></a>3、java各个版本</h4><p>java 分为Java SE 、Java ME、Java EE</p>
+<p><strong>通俗理解：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Java SE 是做电脑上运行的软件。</span><br><span class="line">Java EE 是用来做网站的-（我们常见的JSP技术）</span><br><span class="line">Java ME 是做手机软件的。</span><br></pre></td></tr></table></figure>
+
+<h5 id="1）、Java-SE（Java-Platform，Standard-Edition）"><a href="#1）、Java-SE（Java-Platform，Standard-Edition）" class="headerlink" title="1）、Java SE（Java Platform，Standard Edition）"></a>1）、Java SE（Java Platform，Standard Edition）</h5><p>ava SE 以前称为 J2SE。它允许开发和部署在桌面、服务器、嵌入式环境和实时环境中使用的 Java 应用程序。Java SE 包含了支持 Java Web 服务开发的类，并为 Java Platform，Enterprise Edition（Java EE）提供基础。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">se是企业标准版，ee是web版（目前应用广版泛），me是微型版，也就是手机小程序</span><br></pre></td></tr></table></figure>
+
+<h4 id="4、jvm"><a href="#4、jvm" class="headerlink" title="4、jvm"></a>4、jvm</h4><p>JVM是Java Virtual Machine（Java<a href="https://baike.baidu.com/item/虚拟机" target="_blank" rel="noopener">虚拟机</a>）的缩写，JVM是一种用于计算设备的规范，它是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的。</p>
+<p>引入Java语言虚拟机后，Java语言在不同平台上运行时不需要重新编译。Java语言使用Java虚拟机屏蔽了与具体平台相关的信息，使得Java语言<a href="https://baike.baidu.com/item/编译程序/8290180" target="_blank" rel="noopener">编译程序</a>只需生成在Java虚拟机上运行的目标代码（<a href="https://baike.baidu.com/item/字节码/9953683" target="_blank" rel="noopener">字节码</a>），就可以在多种平台上不加修改地运行。</p>
+<h3 id="二、Java运行"><a href="#二、Java运行" class="headerlink" title="二、Java运行"></a>二、Java运行</h3><p><img src="E:%5C2020%5Cjavabk%5Cpic%5CQQ%E6%88%AA%E5%9B%BE20200514174235.png" alt=""></p>
+<p><img src="E:%5C2020%5Cjavabk%5Cpic%5CQQ%E6%88%AA%E5%9B%BE20200514174302.png" alt=""></p>
+<p><img src="E:%5C2020%5Cjavabk%5Cpic%5Cbf096b63f6246b6042db690ee7f81a4c500fa2f7.png" alt=""></p>
+<p><img src="E:%5C2020%5Cjavabk%5Cpic%5CQQ%E6%88%AA%E5%9B%BE20200514222719.png" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">1.用new创建的对象在堆区，函数中的临时变量在栈区，Java中的字符串在字符串常量区。</span><br><span class="line"></span><br><span class="line">2.栈：存放进本数据类型的数据和对象的引用，但对象本身不存在栈中，而是存放在堆中。</span><br><span class="line">     堆：存放new产生的数据。 静态域：存放在对象中用static定义的静态成员。</span><br><span class="line"> 常量池：存放常量</span><br><span class="line"></span><br><span class="line"> 非RAM存储：硬盘等永久存储空间。</span><br><span class="line"></span><br><span class="line">3.Java堆区和栈区的区别</span><br><span class="line">堆区（Heap）：</span><br><span class="line">堆区中存放的是对象以及每个对象对应的class的信息，其中存放class</span><br><span class="line">的信息主要是获取类的操作指令，jvm只有一个堆区，被所有线程共享，堆中不存放基本</span><br><span class="line">类型和对象引用，只存放对象本身。</span><br><span class="line">栈区（Stack）：</span><br><span class="line">每个线程包含一个栈区，占中只保存基础数据类型的对象和自定义对象引用（不</span><br><span class="line">是对象），对象都存放在堆区中；每个栈区中的数据（原始类型和对象引用）都是私有的，</span><br><span class="line">其他栈不能访问；栈分为三个部分：基本类型变量区、执行环境上下文、操作指令区（存放</span><br><span class="line">操作指令）。栈区由编译器自动分配释放，存放函数的参数值，局部变量的值等</span><br></pre></td></tr></table></figure>
+
+<h4 id="1、堆和栈"><a href="#1、堆和栈" class="headerlink" title="1、堆和栈"></a>1、堆和栈</h4><p><strong>栈：</strong></p>
+<ul>
+<li><p>先进后出</p>
+</li>
+<li><p>Java中<strong>一个线程一个栈区</strong>，每一个栈中的元素都是<strong>私有</strong>的，不被其他栈所访问</p>
+</li>
+<li><p>栈中的数据大小与<strong>生存期</strong>都是<strong>确定</strong>的，缺乏灵活性，但是，存取速度比堆要<strong>快</strong>，仅次于CPU中的寄存器，另外栈中的数据是共享的</p>
+</li>
+<li><p>所有的<strong>基本数据类型</strong>和<strong>引用变量</strong>（对象引用）都在栈中存储</p>
+<!--Java中的基本数据类型包括8种，分别是byte、short、int、long、float、double、boolean、char；-->
+
+</li>
+</ul>
+<p><strong>堆：</strong></p>
+<ul>
+<li>堆中的数据没有先后顺序（逻辑上连续就好）</li>
+<li>Java中只有<strong>一个堆</strong>，被所有<strong>线程共享</strong></li>
+<li>堆中的数据不需要事先告诉编译器它的生存期，可以动态的分配内存的大小（<strong>动态的申请内存空间</strong>），也就是这样导致了<strong>存取速度慢</strong></li>
+<li>不再使用的数据由Java中的<strong>垃圾回收机制自动回收</strong></li>
+<li>在Java中由<strong>new</strong>创建出来的<strong>对象</strong>都是在堆中的，当垃圾回收机制检测到某对象未被引用时，则自<strong>动销毁该对象</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">包装类数据：Java中的包装数据类型包括Byte、Short、Integer、Long、Float、Double、Boolean、Character。这些数据类型都是存放在堆中的，Java中通过new( ) 操作显示的告诉编译器，当运行时根据需要动态创建，缺点就是速度慢。</span><br><span class="line"></span><br><span class="line">String类型：是一种特殊的包装类，也是通过new( )操作动态的创建数据，比如：String s1&#x3D;new String(&quot;abcd&quot;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、方法区"><a href="#2、方法区" class="headerlink" title="2、方法区"></a>2、方法区</h4><p>又叫静态区，跟堆一样，被所有的线程共享；方法区包含所有的class和static变量；方法区中包含的都是在整个程序中永远唯一的元素，如class，static变量。</p>
+<h3 id="三、Java基础知识储备"><a href="#三、Java基础知识储备" class="headerlink" title="三、Java基础知识储备"></a>三、Java基础知识储备</h3><h4 id="1、java基础数据类型"><a href="#1、java基础数据类型" class="headerlink" title="1、java基础数据类型"></a>1、java基础数据类型</h4><p><strong>变量就是申请内存来存储值</strong>。也就是说，当创建变量的时候，需要在内存中申请空间。</p>
+<p>内存管理系统根据变量的类型为变量分配存储空间，分配的空间只能用来储存该类型数据。</p>
+<p>Java 的两大数据类型:</p>
+<ul>
+<li>内置数据类型</li>
+<li>引用数据类型</li>
+</ul>
+<h5 id="1）、内置数据类型"><a href="#1）、内置数据类型" class="headerlink" title="1）、内置数据类型"></a>1）、内置数据类型</h5><p>Java语言提供了八种基本类型。六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。</p>
+<p><strong>类型默认：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>数据类型</strong></th>
+<th align="left"><strong>默认值</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">byte</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">short</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">int</td>
+<td align="left">0</td>
+</tr>
+<tr>
+<td align="left">long</td>
+<td align="left">0L</td>
+</tr>
+<tr>
+<td align="left">float</td>
+<td align="left">0.0f</td>
+</tr>
+<tr>
+<td align="left">double</td>
+<td align="left">0.0d</td>
+</tr>
+<tr>
+<td align="left">char</td>
+<td align="left">‘u0000’</td>
+</tr>
+<tr>
+<td align="left">String (or any object) 引用类型</td>
+<td align="left">null</td>
+</tr>
+<tr>
+<td align="left">boolean</td>
+<td align="left">false</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java内置8（9）种基本类型 -&gt; 6种数字类型 -&gt; 4种整数类型: byte, short, int, long -&gt; 2种浮点类型: float, double -&gt; 1种布尔类型: boolean -&gt; 1种字符类型: char -&gt; 1种void（空类型）。</span><br></pre></td></tr></table></figure>
+
+<h5 id="2）、引用数据类型"><a href="#2）、引用数据类型" class="headerlink" title="2）、引用数据类型"></a>2）、引用数据类型</h5><ul>
+<li>在Java中，引用类型的变量非常类似于C/C++的指针。引用类型指向一个对象，指向对象的变量是引用变量。这些变量在声明时被指定为一个特定的类型，比如 Employee、Puppy 等。变量一旦声明后，类型就不能被改变了。</li>
+<li>对象、数组都是引用数据类型。</li>
+<li>所有引用类型的默认值都是null。</li>
+<li>一个引用变量可以用来引用任何与之兼容的类型。</li>
+<li>例子：Site site = new Site(“Runoob”)。</li>
+</ul>
+<h5 id="3）、java中String和char的区别"><a href="#3）、java中String和char的区别" class="headerlink" title="3）、java中String和char的区别"></a>3）、java中String和char的区别</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> 1  char是表示的是字符，定义的时候用单引号，只能存储一个字符。例如; char&#x3D;&#39;d&#39;.</span><br><span class="line"> 	而String表示的是字符串，定义的时候用双引号，可以存储一个或者多个字符。例如：String&#x3D;“we  are neuer”。</span><br><span class="line"></span><br><span class="line"> 2   char是基本数据类型，而String是个类，属于引用数据类型。String类可以调用方法，具有面向对象的特征。</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2、String字符串"><a href="#2、String字符串" class="headerlink" title="2、String字符串"></a>2、String字符串</h4><h5 id="1）、创建String字符串方法"><a href="#1）、创建String字符串方法" class="headerlink" title="1）、创建String字符串方法"></a>1）、创建String字符串方法</h5><p>java设计了两种不同的方法来生成字符串对象，一种是使用双引号，一种是调用String类的构造函数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">String str1 = <span class="string">"we  are  student"</span>;</span><br><span class="line">String str2 = <span class="keyword">new</span> String (<span class="string">"qau neu"</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">注：Java为String类型提供了缓冲池机制，当使用双引号定义对象时，Java环境首先去字符串缓冲池寻找内容相同的字符串，如果存在就拿出来使用，否则就创建一个新的字符串放在缓冲池中。</span><br><span class="line"></span><br><span class="line"> 例如： String  S=<span class="keyword">new</span> String(<span class="string">"abc''),  产生(或者创建)几个对象？</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">答案是：产生一个或者两个对象。如果常量池中原来没有“abc"</span>,就产两个对象，如果字符串常量池中<span class="string">"abc"</span>,就产生一个对象。</span><br><span class="line"></span><br><span class="line">因此，这个问题如果换成 String str = <span class="keyword">new</span> String(<span class="string">"abc"</span>)涉及到几个String对象？合理的解释是<span class="number">2</span>个。</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-、String对象不被改变"><a href="#2-、String对象不被改变" class="headerlink" title="2)、String对象不被改变"></a>2)、String对象不被改变</h5><p>String类是<strong>final类</strong>，也即意味着String类<strong>不能被继承</strong>，并且它的成员方法都默认为final方法。在Java中，被final修饰的类是不允许被继承的，并且该类中的成员方法都默认为final方法。</p>
+<p>在这里要永远记住一点：“<strong>String对象一旦被创建就是固定不变的了，对String对象的任何改变都不影响到原对象，相关的任何change操作都会生成新的对象</strong>”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String实例的值是通过字符数组实现字符串存储的。</span><br></pre></td></tr></table></figure>
+
+<h5 id="3）、字符串常量池"><a href="#3）、字符串常量池" class="headerlink" title="3）、字符串常量池"></a>3）、字符串常量池</h5><p> 我们知道字符串的分配和其他对象分配一样，是需要消耗高昂的时间和空间的，而且字符串我们使用的非常多。JVM为了提高性能和减少内存的开销，在实例化字符串的时候进行了一些优化：使用字符串常量池。<strong>每当我们创建字符串常量时，JVM会首先检查字符串常量池，如果该字符串已经存在常量池中，那么就直接返回常量池中的实例引用。如果字符串不存在常量池中，就会实例化该字符串并且将其放到常量池中。由于String字符串的不可变性我们可以十分肯定常量池中一定不存在两个相同的字符串（这点对理解上面至关重要）</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Java中的常量池，实际上分为两种形态：静态常量池和运行时常量池。</span><br><span class="line">所谓静态常量池，即*.class文件中的常量池，class文件中的常量池不仅仅包含字符串(数字)字面量，还包含类、方法的信息，占用class文件绝大部分空间。</span><br><span class="line"></span><br><span class="line">而运行时常量池，则是jvm虚拟机在完成类装载操作后，将class文件中的常量池载入到内存中，并保存在方法区中，我们常说的常量池，就是指方法区中的运行时常量池。</span><br></pre></td></tr></table></figure>
+
+<h5 id="4）、-”连接符的效率"><a href="#4）、-”连接符的效率" class="headerlink" title="4）、+”连接符的效率"></a>4）、+”连接符的效率</h5><p>编译期</p>
+<p>运行期</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">“+”连接符对于直接相加的字符串常量效率很高，因为在编译期间便确定了它的值，也就是说形如&quot;I&quot;+“love”+“java”; 的字符串相加，在编译期间便被优化成了&quot;Ilovejava&quot;。对于间接相加（即包含字符串引用，且编译期无法确定值的），形如s1+s2+s3; 效率要比直接相加低，因为在编译器不会对引用变量进行优化。</span><br></pre></td></tr></table></figure>
+
+<p>使用“+”连接符时，JVM会隐式创建StringBuilder对象，这种方式在大部分情况下并不会造成效率的损失，不过在进行大量循环拼接字符串时则需要注意。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">"abc"</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10000</span>; i++) &#123;</span><br><span class="line">    s += <span class="string">"abc"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 反编译后</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">String s = <span class="string">"abc"</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">     s = (<span class="keyword">new</span> StringBuilder()).append(s).append(<span class="string">"abc"</span>).toString();    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样由于大量StringBuilder创建在堆内存中，肯定会造成效率的损失，所以在这种情况下建议在循环体外创建一个StringBuilder对象调用append()方法手动拼接（如上面例子如果使用手动拼接运行时间将缩小到1/200左右）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 循环中使用StringBuilder代替“+”连接符</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">StringBuilder sb = <span class="keyword">new</span> StringBuilder(<span class="string">"abc"</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">    sb.append(<span class="string">"abc"</span>);</span><br><span class="line">&#125;</span><br><span class="line">sb.toString();</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h3><h4 id="1、字面量"><a href="#1、字面量" class="headerlink" title="1、字面量"></a>1、字面量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">就是直接给值 不声百明变量储存例如度int a &#x3D; 0;a &#x3D; a + 3; a 是变量 3是字面量 又String s &#x3D; &quot;字符串内&quot;;s 是变量System.out.println(&quot;这是一个字容符串字面量&quot;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>JDK各个版本发布时间和版本名称：<a href="https://blog.csdn.net/J080624/article/details/85259041" target="_blank" rel="noopener">https://blog.csdn.net/J080624/article/details/85259041</a></p>
+<p>菜鸟教程——Java：<a href="https://www.runoob.com/java/java-basic-datatypes.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-basic-datatypes.html</a></p>
+<p>深入理解Java String类：<a href="https://blog.csdn.net/ifwinds/article/details/80849184" target="_blank" rel="noopener">https://blog.csdn.net/ifwinds/article/details/80849184</a></p>
+<p>java中String和char：<a href="https://blog.csdn.net/qauchangqingwei/article/details/80831797" target="_blank" rel="noopener">https://blog.csdn.net/qauchangqingwei/article/details/80831797</a></p>
+<p>堆与栈的区别：<a href="https://blog.csdn.net/K346K346/article/details/80849966" target="_blank" rel="noopener">https://blog.csdn.net/K346K346/article/details/80849966</a></p>
+<p>Java中的字面量：<a href="https://www.jianshu.com/p/465073cc94d8" target="_blank" rel="noopener">https://www.jianshu.com/p/465073cc94d8</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -470,260 +2081,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/2020/06/03/My-New-Post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="rarcard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/av.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/06/03/My-New-Post/" itemprop="url">My New Post</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-03T10:49:36+08:00">
-                2020-06-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/2020/06/02/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="rarcard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/av.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/06/02/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-02T23:41:30+08:00">
-                2020-06-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&lt;i class&#x3D;&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
+
 
 
           </div>
@@ -767,7 +2131,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
