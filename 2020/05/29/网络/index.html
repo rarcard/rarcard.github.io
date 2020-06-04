@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script data-ad-client="ca-pub-2453437905270416" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="网络," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="计算机网络一、科学上网1、关于代理模式的解释区别一：使用流量多少不一样。 PAC模式：节省流量。 全局模式：流量消耗较多。 区别二：运行速度快慢不一样。 PAC模式：国内网站依旧走本地网络，速度快，绝大部分国外网站都走代理，速度也快。。 全局模式：所有网站都走代理，访问国内网站速度变慢。 区别三：访问网站覆盖面不一样。 PAC模式：少部分国外网站不走代理，无法起到加速效果，甚至无法访问。 全局模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络之科学上网">
+<meta property="og:url" content="https://rarcard.github.io/2020/05/29/%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="计算机网络一、科学上网1、关于代理模式的解释区别一：使用流量多少不一样。 PAC模式：节省流量。 全局模式：流量消耗较多。 区别二：运行速度快慢不一样。 PAC模式：国内网站依旧走本地网络，速度快，绝大部分国外网站都走代理，速度也快。。 全局模式：所有网站都走代理，访问国内网站速度变慢。 区别三：访问网站覆盖面不一样。 PAC模式：少部分国外网站不走代理，无法起到加速效果，甚至无法访问。 全局模式">
+<meta property="article:published_time" content="2020-05-29T13:46:12.000Z">
+<meta property="article:modified_time" content="2020-06-04T06:59:03.761Z">
+<meta property="article:author" content="rarcard">
+<meta property="article:tag" content="网络">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://rarcard.github.io/2020/05/29/网络/"/>
+
+
+
+
+
+  <title>计算机网络之科学上网 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">rarcard的第一个blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/2020/05/29/%E7%BD%91%E7%BB%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rarcard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/av.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机网络之科学上网</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-29T21:46:12+08:00">
+                2020-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h3><h4 id="一、科学上网"><a href="#一、科学上网" class="headerlink" title="一、科学上网"></a>一、科学上网</h4><h5 id="1、关于代理模式的解释"><a href="#1、关于代理模式的解释" class="headerlink" title="1、关于代理模式的解释"></a>1、关于代理模式的解释</h5><p><strong>区别一：使用流量多少不一样。</strong></p>
+<p>PAC模式：节省流量。</p>
+<p>全局模式：流量消耗较多。</p>
+<p><strong>区别二：运行速度快慢不一样。</strong></p>
+<p>PAC模式：国内网站依旧走本地网络，速度快，绝大部分国外网站都走代理，速度也快。。</p>
+<p>全局模式：所有网站都走代理，访问国内网站速度变慢。</p>
+<p><strong>区别三：访问网站覆盖面不一样。</strong></p>
+<p>PAC模式：少部分国外网站不走代理，无法起到加速效果，甚至无法访问。</p>
+<p>全局模式：可访问全球所有网站。</p>
+<p><strong>区别四：运行原理不一样。</strong></p>
+<p>PAC模式：所有http/socks数据经过代理服务器的转发送出。而只有支持socks5或者使用系统代理的软件才能使用Shadowsocks（一般的浏览器都是默认使用系统代理）。</p>
+<p>全局模式：不要求应用程序遵循特定的操作系统平台，只是简单地传递数据包，而不必关心是何种应用协议（比如FTP、HTTP和NNTP请求）。</p>
+<p><strong>区别五：智能程度不一样。</strong></p>
+<p>PAC模式：是智能分流模式，根据规则去匹配你访问的网站，仅加速国外网站，国内网站不受影响，非常智能。</p>
+<p>全局模式：机械的利用设计的程序进行访问网站，所有网站都走代理，智能化程度不高。</p>
+<h5 id="2、直连模式"><a href="#2、直连模式" class="headerlink" title="2、直连模式"></a>2、直连模式</h5><p><code>直接模式</code>会在<code>系统代理设置</code>里关闭代理，使启用<code>系统代理设置</code>的软件（一般为浏览器）直接连接网络。</p>
+<p>但是，它并没有关闭在本地构建的<code>代理服务器</code>，其它手动配置代理的软件仍然可以进行连接。</p>
+<h5 id="3、PAC模式"><a href="#3、PAC模式" class="headerlink" title="3、PAC模式"></a>3、PAC模式</h5><p><code>PAC模式</code>会在<code>系统代理设置</code>设置一个<code>PAC脚本</code>文件，让系统通过这个文件自动选择每一个连接是否启用<code>代理服务器</code>，以及选择哪一个<code>代理服务器</code>。</p>
+<h5 id="4、全局模式"><a href="#4、全局模式" class="headerlink" title="4、全局模式"></a>4、全局模式</h5><p><code>全局模式</code>会在<code>系统代理设置</code>手动设置一个<code>代理服务器</code>，所有跟随<code>系统代理设置</code>的软件（一般是浏览器）都会使用这个<code>代理服务器</code>。</p>
+<h4 id="二、代理服务器"><a href="#二、代理服务器" class="headerlink" title="二、代理服务器"></a>二、代理服务器</h4><h5 id="1、代理"><a href="#1、代理" class="headerlink" title="1、代理"></a>1、代理</h5><p><strong>代理</strong>（英语：Proxy）也称<strong>网络代理</strong>，是一种特殊的网络服务，允许一个<a href="https://zh.wikipedia.org/w/index.php?title=网络终端&action=edit&redlink=1" target="_blank" rel="noopener">网络终端</a>（一般为<a href="https://zh.wikipedia.org/wiki/客户端" target="_blank" rel="noopener">客户端</a>）通过这个服务与另一个<a href="https://zh.wikipedia.org/w/index.php?title=网络终端&action=edit&redlink=1" target="_blank" rel="noopener">网络终端</a>（一般为<a href="https://zh.wikipedia.org/wiki/服务器" target="_blank" rel="noopener">服务器</a>）进行非直接的连接。一些<a href="https://zh.wikipedia.org/wiki/网关" target="_blank" rel="noopener">网关</a>、<a href="https://zh.wikipedia.org/wiki/路由器" target="_blank" rel="noopener">路由器</a>等网络设备具备网络代理功能。一般认为代理服务有利于保障网络终端的隐私或安全，防止攻击。</p>
+<h5 id="2、代理服务器"><a href="#2、代理服务器" class="headerlink" title="2、代理服务器"></a>2、代理服务器</h5><p>提供代理服务的电脑系统或其它类型的网络终端称为代理服务器（英文：Proxy Server）。一个完整的代理请求过程为：<a href="https://zh.wikipedia.org/wiki/客户端" target="_blank" rel="noopener">客户端</a>首先与代理服务器创建连接，接着根据代理服务器所使用的代理协议，请求对目标服务器创建连接、或者获得目标服务器的指定资源（如：文件）。在后一种情况中，代理服务器可能对目标服务器的资源下载至本地<a href="https://zh.wikipedia.org/wiki/缓存" target="_blank" rel="noopener">缓存</a>，如果客户端所要获取的资源在代理服务器的缓存之中，则代理服务器并不会向目标服务器发送请求，而是直接传回已缓存的资源。一些代理协议允许代理服务器改变客户端的原始请求、目标服务器的原始响应，以满足代理协议的需要。代理服务器的选项和设置在计算机程序中，通常包括一个“防火墙”，允许用户输入代理地址，它会遮盖他们的网络活动，可以允许绕过互联网过滤实现网络访问。</p>
+<p>代理服务器的基本行为就是接收客户端发送的请求后转发给其他服务器。代理不改变请求<a href="https://zh.wikipedia.org/wiki/URI" target="_blank" rel="noopener">URI</a>，会直接发送给前方持有资源的目标服务器。</p>
+<p>持有资源实体的服务器被称为<strong>源服务器</strong>。从源服务器返回的响应经过代理服务器后再传给客户端。</p>
+<h5 id="3、服务器"><a href="#3、服务器" class="headerlink" title="3、服务器"></a>3、服务器</h5><p><strong>服务器</strong>（英语：server）指：</p>
+<ul>
+<li>一个管理资源并为用户提供服务的计算机软件，通常分为<a href="https://zh.wikipedia.org/wiki/文件服务器" target="_blank" rel="noopener">文件服务器</a>（能使用户在其它计算机访问<a href="https://zh.wikipedia.org/wiki/文件" target="_blank" rel="noopener">文件</a>），<a href="https://zh.wikipedia.org/wiki/数据库服务器" target="_blank" rel="noopener">数据库服务器</a>和<a href="https://zh.wikipedia.org/wiki/应用程序服务器" target="_blank" rel="noopener">应用程序服务器</a>。</li>
+<li>运行以上软件的<a href="https://zh.wikipedia.org/wiki/计算机" target="_blank" rel="noopener">计算机</a>，或称为<strong><a href="https://zh.wikipedia.org/wiki/主机_(网络)" target="_blank" rel="noopener">网络主机</a></strong>（host）。</li>
+</ul>
+<p>服务器通常以<a href="https://zh.wikipedia.org/wiki/網絡" target="_blank" rel="noopener">网络</a>作为介质，既可以通过<a href="https://zh.wikipedia.org/wiki/Intranet" target="_blank" rel="noopener">内部网</a>对内提供服务，也可以通过<a href="https://zh.wikipedia.org/wiki/Internet" target="_blank" rel="noopener">互联网</a>对外提供服务。服务器的最大特点就是其强大的运算能力，使其能在短时间内完成大量工作，并为大量用户提供服务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">服务器作为硬件来说，通常是指那些具有较高计算能力，能够提供给多个用户使用的计算机。</span><br><span class="line"></span><br><span class="line">个人理解：中小型计算机，服务器就是计算机，比个人计算机性能更强——运算能力、存储能力</span><br></pre></td></tr></table></figure>
+
+<p>有时，这两种定义会引起混淆，如<a href="https://zh.wikipedia.org/wiki/网页服务器" target="_blank" rel="noopener">网页服务器</a>。它可能是指用于<a href="https://zh.wikipedia.org/wiki/网站" target="_blank" rel="noopener">网站</a>的计算机，也可能是指像<a href="https://zh.wikipedia.org/wiki/Apache" target="_blank" rel="noopener">Apache</a>这样的软件，运行在这样的计算机上以管理网页组件和回应<a href="https://zh.wikipedia.org/wiki/网页浏览器" target="_blank" rel="noopener">网页浏览器</a>的请求。 服务器的构成包括<a href="https://zh.wikipedia.org/wiki/中央处理器" target="_blank" rel="noopener">中央处理器</a>、<a href="https://zh.wikipedia.org/wiki/硬盘" target="_blank" rel="noopener">硬盘</a>、<a href="https://zh.wikipedia.org/wiki/内存" target="_blank" rel="noopener">内存</a>等，和通用的计算机架构类似，但是由于需要提供高可靠的服务，因此在处理能力、稳定性、可靠性、安全性、可扩展性、可管理性等方面要求较高。 在网络环境下，根据服务器提供的服务类型不同，分为文件服务器，数据库服务器，应用程序服务器，Web服务器等。</p>
+<h6 id="1、代理协议"><a href="#1、代理协议" class="headerlink" title="1、代理协议"></a>1、代理协议</h6><ul>
+<li>Socks</li>
+<li>HTTP</li>
+</ul>
+<h6 id="2、服务器（软件）"><a href="#2、服务器（软件）" class="headerlink" title="2、服务器（软件）"></a>2、服务器（软件）</h6><p>服务器<a href="https://zh.wikipedia.org/wiki/软件" target="_blank" rel="noopener">软件</a>的定义如前面所述，服务器软件工作在<a href="https://zh.wikipedia.org/wiki/客户端-服务器" target="_blank" rel="noopener">客户端-服务器</a>或<a href="https://zh.wikipedia.org/wiki/浏览器-服务器" target="_blank" rel="noopener">浏览器-服务器</a>的方式，有很多形式的服务器，常用的包括：</p>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/文件服务器" target="_blank" rel="noopener">文件服务器</a>（file server）或<a href="https://zh.wikipedia.org/wiki/網路儲存設備" target="_blank" rel="noopener">网络存储设备</a>（network attached storage）；</li>
+<li><a href="https://zh.wikipedia.org/wiki/数据库服务器" target="_blank" rel="noopener">数据库服务器</a>（database server）——如<a href="https://zh.wikipedia.org/wiki/Oracle" target="_blank" rel="noopener">Oracle</a>数据库服务器，<a href="https://zh.wikipedia.org/wiki/MySQL" target="_blank" rel="noopener">MySQL</a>，<a href="https://zh.wikipedia.org/wiki/MariaDB" target="_blank" rel="noopener">MariaDB</a>，<a href="https://zh.wikipedia.org/wiki/PostgreSQL" target="_blank" rel="noopener">PostgreSQL</a>，<a href="https://zh.wikipedia.org/wiki/Microsoft_SQL_Server" target="_blank" rel="noopener">Microsoft SQL Server</a>，<a href="https://zh.wikipedia.org/wiki/MongoDB" target="_blank" rel="noopener">MongoDB</a>，<a href="https://zh.wikipedia.org/wiki/Redis" target="_blank" rel="noopener">Redis</a>等；</li>
+<li><a href="https://zh.wikipedia.org/w/index.php?title=邮件服务器&action=edit&redlink=1" target="_blank" rel="noopener">邮件服务器</a>（mail server）——<a href="https://zh.wikipedia.org/wiki/Sendmail" target="_blank" rel="noopener">Sendmail</a>、<a href="https://zh.wikipedia.org/wiki/Postfix" target="_blank" rel="noopener">Postfix</a>、<a href="https://zh.wikipedia.org/wiki/Qmail" target="_blank" rel="noopener">Qmail</a>、<a href="https://zh.wikipedia.org/wiki/Microsoft_Exchange" target="_blank" rel="noopener">Microsoft Exchange</a>、<a href="https://zh.wikipedia.org/wiki/Lotus_Domino" target="_blank" rel="noopener">Lotus Domino</a>、<a href="https://zh.wikipedia.org/w/index.php?title=Dovecot&action=edit&redlink=1" target="_blank" rel="noopener">dovecot</a>等；</li>
+<li><a href="https://zh.wikipedia.org/wiki/網頁伺服器" target="_blank" rel="noopener">网页服务器</a>（Web server）——如<a href="https://zh.wikipedia.org/wiki/Apache" target="_blank" rel="noopener">Apache</a>、<a href="https://zh.wikipedia.org/wiki/Lighttpd" target="_blank" rel="noopener">lighttpd</a>、<a href="https://zh.wikipedia.org/wiki/Nginx" target="_blank" rel="noopener">nginx</a>、<a href="https://zh.wikipedia.org/wiki/微软" target="_blank" rel="noopener">微软</a>的<a href="https://zh.wikipedia.org/wiki/Internet_Information_Server" target="_blank" rel="noopener">IIS</a>等；</li>
+<li><a href="https://zh.wikipedia.org/wiki/文件传输协议" target="_blank" rel="noopener">FTP</a>服务器（FTP server）——<a href="https://zh.wikipedia.org/w/index.php?title=Pureftpd&action=edit&redlink=1" target="_blank" rel="noopener">Pureftpd</a>、<a href="https://zh.wikipedia.org/w/index.php?title=Proftpd&action=edit&redlink=1" target="_blank" rel="noopener">Proftpd</a>、<a href="https://zh.wikipedia.org/w/index.php?title=WU-ftpd&action=edit&redlink=1" target="_blank" rel="noopener">WU-ftpd</a>、<a href="https://zh.wikipedia.org/w/index.php?title=Serv-U&action=edit&redlink=1" target="_blank" rel="noopener">Serv-U</a>、<a href="https://zh.wikipedia.org/w/index.php?title=Vs-ftpd&action=edit&redlink=1" target="_blank" rel="noopener">vs-ftpd</a>等；</li>
+<li><a href="https://zh.wikipedia.org/wiki/域名服务器" target="_blank" rel="noopener">域名服务器</a>（DNS server）——如<a href="https://zh.wikipedia.org/wiki/BIND" target="_blank" rel="noopener">BIND</a>等；</li>
+<li><a href="https://zh.wikipedia.org/wiki/應用程式伺服器" target="_blank" rel="noopener">应用程序服务器</a>（application server/AP server）——如Bea公司的<a href="https://zh.wikipedia.org/wiki/WebLogic" target="_blank" rel="noopener">WebLogic</a>、<a href="https://zh.wikipedia.org/wiki/JBoss" target="_blank" rel="noopener">JBoss</a>、<a href="https://zh.wikipedia.org/wiki/Sun" target="_blank" rel="noopener">Sun</a>的<a href="https://zh.wikipedia.org/wiki/GlassFish" target="_blank" rel="noopener">GlassFish</a>；</li>
+<li><a href="https://zh.wikipedia.org/wiki/代理服务器" target="_blank" rel="noopener">代理服务器</a>（proxy server）——如<a href="https://zh.wikipedia.org/wiki/Squid_cache" target="_blank" rel="noopener">Squid cache</a>；</li>
+<li><a href="https://zh.wikipedia.org/wiki/Active_Directory" target="_blank" rel="noopener">Active Directory</a>服务器；</li>
+<li>其他，如<a href="https://zh.wikipedia.org/wiki/Minecraft" target="_blank" rel="noopener">Minecraft</a>游戏服务器等。</li>
+</ul>
+<h5 id="4、Scoks协议"><a href="#4、Scoks协议" class="headerlink" title="4、Scoks协议"></a>4、Scoks协议</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SOCKS是一种网络传输协议，主要用于客户端与外网服务器之间通讯的中间传递。SOCKS是&quot;SOCKetS&quot;的缩写</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">当防火墙后的客户端要访问外部的服务器时，就跟SOCKS代理服务器连接。这个代理服务器控制客户端访问外网的资格，允许的话，就将客户端的请求发往外部的服务器。</span><br><span class="line"></span><br><span class="line">这个协议最初由David Koblas开发，而后由NEC的Ying-Da Lee将其扩展到SOCKS4。最新协议是SOCKS5，与前一版本相比，增加支持UDP、验证，以及IPv6。</span><br><span class="line"></span><br><span class="line">根据OSI模型，SOCKS是会话层的协议，位于表示层与传输层之间。</span><br><span class="line"></span><br><span class="line">SOCKS协议不提供加密。</span><br></pre></td></tr></table></figure>
+
+<h5 id="5、Shadowsocks"><a href="#5、Shadowsocks" class="headerlink" title="5、Shadowsocks"></a>5、Shadowsocks</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Shadowsocks（简称SS）是一种基于Socks5代理方式的加密传输协议，也可以指实现这个协议的各种开发包。当前包使用Python、C、C++、C#、Go语言、Rust等编程语言开发，大部分主要实现（iOS平台的除外）采用Apache许可证、GPL、MIT许可证等多种自由软件许可协议开放源代码。Shadowsocks分为服务器端和客户端，在使用之前，需要先将服务器端程序部署到服务器上面，然后通过客户端连接并创建本地代理。</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="refer"><a href="#refer" class="headerlink" title="refer"></a>refer</h4><p>Shadowsocks(R)设置：系统代理模式、PAC、代理规则：<a href="https://vimcaw.github.io/blog/2018/03/12/Shadowsocks(R)设置：系统代理模式、PAC、代理规则/" target="_blank" rel="noopener">https://vimcaw.github.io/blog/2018/03/12/Shadowsocks(R)设置：系统代理模式、PAC、代理规则/</a></p>
+<p>关于代理模式的解释：<a href="http://52this.com/index.php/archives/49/" target="_blank" rel="noopener">http://52this.com/index.php/archives/49/</a></p>
+<p>维基百科——代理服务器：<a href="https://zh.wikipedia.org/wiki/代理服务器" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/代理服务器</a></p>
+<p>维基百科——服务器：<a href="https://zh.wikipedia.org/wiki/服务器" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/服务器</a></p>
+<p>维基百科——Scoks：<a href="https://zh.wikipedia.org/wiki/SOCKS" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/SOCKS</a></p>
+<p>维基百科——Sandowsocks：<a href="https://zh.wikipedia.org/wiki/Shadowsocks" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/Shadowsocks</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag"># 网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/28/hello-world/" rel="next" title="hexo测试">
+                <i class="fa fa-chevron-left"></i> hexo测试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/02/Ajax()/" rel="prev" title="Ajax交互技术">
+                Ajax交互技术 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/av.jpg"
+               alt="rarcard" />
+          <p class="site-author-name" itemprop="name">rarcard</p>
+           
+              <p class="site-description motion-element" itemprop="description">关于我学习技术的一个小探索</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机网络"><span class="nav-number">1.</span> <span class="nav-text">计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、科学上网"><span class="nav-number">1.1.</span> <span class="nav-text">一、科学上网</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、关于代理模式的解释"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、关于代理模式的解释</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、直连模式"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、直连模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、PAC模式"><span class="nav-number">1.1.3.</span> <span class="nav-text">3、PAC模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、全局模式"><span class="nav-number">1.1.4.</span> <span class="nav-text">4、全局模式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、代理服务器"><span class="nav-number">1.2.</span> <span class="nav-text">二、代理服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、代理"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、代理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、代理服务器"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、代理服务器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、服务器"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、代理协议"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">1、代理协议</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、服务器（软件）"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">2、服务器（软件）</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、Scoks协议"><span class="nav-number">1.2.4.</span> <span class="nav-text">4、Scoks协议</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、Shadowsocks"><span class="nav-number">1.2.5.</span> <span class="nav-text">5、Shadowsocks</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#refer"><span class="nav-number">1.3.</span> <span class="nav-text">refer</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">rarcard</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
