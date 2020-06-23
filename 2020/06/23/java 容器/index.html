@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script data-ad-client="ca-pub-2453437905270416" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/rarcard.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/rarcard.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/rarcard.github.io/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/rarcard.github.io/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="java 容器  导入1、List、Map、Set之间的联系与区别1. 数组和集合的区别1231.数组的大小是固定的，并且同一个数组只能是相同的数据类型2.集合的大小是不固定的，在不知道会有多少数据的情况下可使用集合。  123List：有序集合，元素可重复Set：不重复集合，LinkedHashSet按照插入排序，SortedSet可排序，HashSet无序Map：键值对集合，存储键、值和之间的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java 容器">
+<meta property="og:url" content="https://rarcard.github.io/2020/06/23/java%20%E5%AE%B9%E5%99%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="java 容器  导入1、List、Map、Set之间的联系与区别1. 数组和集合的区别1231.数组的大小是固定的，并且同一个数组只能是相同的数据类型2.集合的大小是不固定的，在不知道会有多少数据的情况下可使用集合。  123List：有序集合，元素可重复Set：不重复集合，LinkedHashSet按照插入排序，SortedSet可排序，HashSet无序Map：键值对集合，存储键、值和之间的">
+<meta property="og:image" content="https://rarcard.github.io/rarcard.github.io/2020/06/23/java%20%E5%AE%B9%E5%99%A8/E:%5C2020%5Cjavabk%5Cpic%5C20190727183756962.png">
+<meta property="og:image" content="https://rarcard.github.io/rarcard.github.io/2020/06/23/java%20%E5%AE%B9%E5%99%A8/E:%5C2020%5Cjavabk%5Cpic%5C20190310181825411.png">
+<meta property="og:image" content="https://rarcard.github.io/rarcard.github.io/2020/06/23/java%20%E5%AE%B9%E5%99%A8/E:%5C2020%5Cjavabk%5Cpic%5Ctimg.jpg">
+<meta property="article:published_time" content="2020-06-23T05:44:40.288Z">
+<meta property="article:modified_time" content="2020-06-22T09:01:13.374Z">
+<meta property="article:author" content="rarcard">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rarcard.github.io/rarcard.github.io/2020/06/23/java%20%E5%AE%B9%E5%99%A8/E:%5C2020%5Cjavabk%5Cpic%5C20190727183756962.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/rarcard.github.io/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://rarcard.github.io/2020/06/23/java 容器/"/>
+
+
+
+
+
+  <title>java 容器 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/rarcard.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">rarcard的第一个blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/rarcard.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/rarcard.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/rarcard.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/rarcard.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/rarcard.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/rarcard.github.io/2020/06/23/java%20%E5%AE%B9%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rarcard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/rarcard.github.io/images/av.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">java 容器</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-23T13:44:40+08:00">
+                2020-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 阅读次数：</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="java-容器"><a href="#java-容器" class="headerlink" title="java 容器"></a>java 容器</h2><p><img src="/rarcard.github.io/2020/06/23/java%20%E5%AE%B9%E5%99%A8/E:%5C2020%5Cjavabk%5Cpic%5C20190727183756962.png" alt></p>
+<p><img src="/rarcard.github.io/2020/06/23/java%20%E5%AE%B9%E5%99%A8/E:%5C2020%5Cjavabk%5Cpic%5C20190310181825411.png" alt></p>
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><h4 id="1、List、Map、Set之间的联系与区别"><a href="#1、List、Map、Set之间的联系与区别" class="headerlink" title="1、List、Map、Set之间的联系与区别"></a>1、List、Map、Set之间的联系与区别</h4><h5 id="1-数组和集合的区别"><a href="#1-数组和集合的区别" class="headerlink" title="1. 数组和集合的区别"></a>1. 数组和集合的区别</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.数组的大小是固定的，并且同一个数组只能是相同的数据类型</span><br><span class="line"></span><br><span class="line">2.集合的大小是不固定的，在不知道会有多少数据的情况下可使用集合。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List：有序集合，元素可重复</span><br><span class="line">Set：不重复集合，LinkedHashSet按照插入排序，SortedSet可排序，HashSet无序</span><br><span class="line">Map：键值对集合，存储键、值和之间的映射；Key无序，唯一；value 不要求有序，允许重复</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-collection和map的区别"><a href="#2-collection和map的区别" class="headerlink" title="2. collection和map的区别"></a>2. collection和map的区别</h5><p>1-collection元素是单列的，map是以键值对存在。<br>        2-collection可以分为两类list和set；<br>    list是有序的可重复的，允许存在空值，且允许存在多个空值。list可以分为两类：ArrayList和LinkedList.<br>        ArrayList 是基于数组实现的，简单来说就是和数组很像，同时解决了数组的有一些缺点。他也是有序有下标，与数组不同的是，普通的数组删除一个元素后，需要手动将后面的元素移动到，不过在ArrayList 中不需要手动移动数据，系统底层回来做这个事情。而且在ArrayList 不需要设置数组长度，你可以无限地往里面放数据，放多少它的length就是多少。适用于经常查找不经常变动的情况。（一般常用）<br>        LinkedList是链式存储的list结构，在其中每个元素不光存储了数据还存储了上一个和下一个数据的位置，这样在新增和删除的时候不需要前后挪动。没有下标，故而适用于经常变动不经常查找的情况。<br>        <strong>Set是无序且不可重复的，没有下标，允许存在null值，且只允许存在一个。</strong>分为：HashSet和TreeSet<br>          TreeSet里面的元素是有序地存放，但是没有有序的下标。</p>
+<h4 id="2、重载和多态"><a href="#2、重载和多态" class="headerlink" title="2、重载和多态"></a>2、重载和多态</h4><h5 id="1）重载"><a href="#1）重载" class="headerlink" title="1）重载"></a>1）重载</h5><p><strong>特点：</strong>同类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">方法重载的要求是：方法名相同，参数列表不同（不同的参数类型或者参数顺序或者参数个数）。至于方法的其他部分，如方法返回值类型和修饰符，与方法重载没有任何关系。最好加上@Overload注解。</span><br></pre></td></tr></table></figure>
+
+<p>为什么要用方法重载？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重载的目的是方便程序员调用方法。比如，System.out.println()这个函数是用来输出的，当输出的是整数时是用这个方法，当输出一个字符串时还是用这个方法。根据传入参数的不同，自动找到匹配的方法。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//（1）构造方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">SinglyList</span><span class="params">()</span>                                    <span class="comment">//构造方法，构造空单链表</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.head = <span class="keyword">new</span> Node&lt;T&gt;();                         <span class="comment">//创建头结点，data和next值均为null</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//构造单链表，由values数组提供元素，忽略其中空对象。采用尾插入，单链表元素次序与数组元素次序相同</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">SinglyList</span><span class="params">(T[] values)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>();                                        <span class="comment">//创建空单链表，只有头结点 用本类中另一种形成的构造函数</span></span><br><span class="line">    Node&lt;T&gt; rear=<span class="keyword">this</span>.head;                            <span class="comment">//rear指向单链表最后一个结点</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;values.length; i++)                <span class="comment">//若values.length==0，构造空链表</span></span><br><span class="line">        <span class="keyword">if</span> (values[i]!=<span class="keyword">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            rear.next=<span class="keyword">new</span> Node&lt;T&gt;(values[i],<span class="keyword">null</span>);     <span class="comment">//尾插入，创建结点链入rear结点之后</span></span><br><span class="line">            rear = rear.next;                          <span class="comment">//rear指向新的链尾结点</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2）重载总结"><a href="#2）重载总结" class="headerlink" title="2）重载总结"></a>2）重载总结</h5><ol>
+<li><p>发生在同一个类中</p>
+</li>
+<li><p>方法名相同</p>
+</li>
+<li><p>参数列表不同（参数的类型，个数，顺序不同）</p>
+</li>
+<li><p>和返回值类型无关</p>
+</li>
+<li><p>和方法的修饰符列表无关</p>
+</li>
+</ol>
+<h5 id="3）多态"><a href="#3）多态" class="headerlink" title="3）多态"></a>3）多态</h5><p><strong>特点：</strong>不同类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不同类的对象对同一消息作出不同的响应就叫做多态。</span><br></pre></td></tr></table></figure>
+
+<p>多态是指允许不同类的对象对同一消息做出响应。即同一消息可以根据发送对象的不同而采用多种不同的行为方式(发送消息就是函数调用)。继承在为多态的实现做了准备。子类继承父类,我们可以编写一个指向子类的父类类型引用,该引用既可以处理父类对象,也可以处理子类对象,当相同的消息发送给子类或者父类对象时,该对象就会根据自己所属的引用而执行不同的行为,这就是多态。即多态性就是相同的消息使得不同的类做出不同的响应。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Java实现多态有三个必要条件:继承,重写,向上转型。</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>*<em>继承: *</em>在多态中必须存在有继承关系的子类和父类。</p>
+</li>
+<li><p>*<em>重写: *</em>子类对父类中某些方法进行重新定义,在调用这些方法时就会调用子类的方法。</p>
+</li>
+<li><p>*<em>向上转型: *</em>在多态中需要将子类的引用赋给父类对象,只有这样该引用才能够具备技能调用父类的方法和子类的方法。</p>
+</li>
+</ol>
+<!-- 我们都知道面向对象有四个基本特性：抽象、封装、继承、多态。这四个特性，概括起来可以这么理解，抽象、封装、继承是多态的基础，多态是抽象、封装、继承的表现。多态，是Java中非常重要的一个部分，所以今天来谈一下多态（Polymorphism）。-->
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">所谓多态，就是指一个引用（类型）在不同的情况下的多种状态。也可以理解为，多态是指通过指向父类的指针，来调用在不同子类中实现的方法。。</span><br><span class="line"></span><br><span class="line">场景假设：</span><br><span class="line"></span><br><span class="line">一个主人养了猫和狗，猫和狗都有自己爱吃的东西，主人在喂它们的时候，如果既要判断是猫还是狗，再判断他们分别爱吃什么，就显得很麻烦。如果主人养了很多种动物，这样的重复判断，就会浪费很多时间。有什么办法，能让主人拿到一种食物就知道这是哪种动物的，就好了。</span><br></pre></td></tr></table></figure>
+
+<p><strong>多态的分类</strong></p>
+<p>1、编译时多态，即方法的重载，从JVM的角度来讲，这是一种静态分派（static dispatch）</p>
+<p>2、运行时多态，即方法的重写，从JVM的角度来讲，这是一种动态分派（dynamic dispatch）</p>
+<h5 id="4）类初始化"><a href="#4）类初始化" class="headerlink" title="4）类初始化"></a>4）类初始化</h5><p><img src="/rarcard.github.io/2020/06/23/java%20%E5%AE%B9%E5%99%A8/E:%5C2020%5Cjavabk%5Cpic%5Ctimg.jpg" alt></p>
+<h4 id="3、继承"><a href="#3、继承" class="headerlink" title="3、继承"></a>3、继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在Java中，继承用extends关键字来实现，语法：class 子类 extends 父类&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>子类可以直接继承父类的操作，可以实现代码的重用，子类最低也维持和父类相同的功能。子类也可以进行功能上的扩充。</p>
+<h5 id="继承的限制"><a href="#继承的限制" class="headerlink" title="继承的限制"></a>继承的限制</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">子类对象在进行实例化前首先调用父类构造方法，再调用子类构造方法实例化子类对象。</span><br></pre></td></tr></table></figure>
+
+<!-- 实际在子类构造方法中，相当于隐含了一个语句super()，调用父类的无参构造。同时如果父类里没有提供无参构造，那么这个时候就必须使用super(参数)明确指明要调用的父类构造方法。 -->
+
+<p>Java只允许单继承不允许多继承（一个子类继承一个父类）</p>
+<h5 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在进行继承的时候，子类会继承父类的所有结构（包括私有属性、构造方法、普通方法）</span><br><span class="line">显示继承：所有非私有操作属于显示继承（可以直接调用）。</span><br><span class="line">隐式继承：所有私有操作属于隐式继承（不可以直接调用，需要通过其它形式调用（get或者set））。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><h4 id="1-特点"><a href="#1-特点" class="headerlink" title="1. 特点"></a>1. 特点</h4><p>key-value</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.不能包含重复的键; 每个键可以映射到最多一个值；</span><br><span class="line">2.可以不同键指向同一Value；</span><br><span class="line">3.支持用户自由绑定Key值与Value；</span><br><span class="line">4.，可以直接访问Key值获得对应Value；</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-常用实现类"><a href="#2-常用实现类" class="headerlink" title="2. 常用实现类"></a>2. 常用实现类</h4><p>HashMap、LinkedHashMap、TreeMap</p>
+<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HasMap特点：</span><br><span class="line">1.键值必须唯一，不允许存在重复键值</span><br><span class="line">2.HashMap中条目是没有顺序的，无法以输入顺序输出</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,Intager&gt; map=<span class="keyword">new</span> HashMap&lt;String,Intager&gt;();</span><br><span class="line">HashMap&lt;String,Intager&gt; map=<span class="keyword">new</span> HashMap&lt;String,Intager&gt;();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">       <span class="keyword">final</span> <span class="keyword">int</span> hash;</span><br><span class="line">       <span class="keyword">final</span> K key;</span><br><span class="line">       V value;</span><br><span class="line">       Node&lt;K,V&gt; next;</span><br><span class="line"></span><br><span class="line">       Node(<span class="keyword">int</span> hash, K key, V value, Node&lt;K,V&gt; next) &#123;</span><br><span class="line">           <span class="keyword">this</span>.hash = hash;</span><br><span class="line">           <span class="keyword">this</span>.key = key;</span><br><span class="line">           <span class="keyword">this</span>.value = value;</span><br><span class="line">           <span class="keyword">this</span>.next = next;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> K <span class="title">getKey</span><span class="params">()</span>        </span>&#123; <span class="keyword">return</span> key; &#125;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> V <span class="title">getValue</span><span class="params">()</span>      </span>&#123; <span class="keyword">return</span> value; &#125;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> key + <span class="string">"="</span> + value; &#125;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">           <span class="keyword">return</span> Objects.hashCode(key) ^ Objects.hashCode(value);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> V <span class="title">setValue</span><span class="params">(V newValue)</span> </span>&#123;</span><br><span class="line">           V oldValue = value;</span><br><span class="line">           value = newValue;</span><br><span class="line">           <span class="keyword">return</span> oldValue;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">if</span> (o == <span class="keyword">this</span>)</span><br><span class="line">               <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">           <span class="keyword">if</span> (o <span class="keyword">instanceof</span> Map.Entry) &#123;</span><br><span class="line">               Map.Entry&lt;?,?&gt; e = (Map.Entry&lt;?,?&gt;)o;</span><br><span class="line">               <span class="keyword">if</span> (Objects.equals(key, e.getKey()) &amp;&amp;</span><br><span class="line">                   Objects.equals(value, e.getValue()))</span><br><span class="line">                   <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="LinkedHashMap的特点"><a href="#LinkedHashMap的特点" class="headerlink" title="LinkedHashMap的特点"></a>LinkedHashMap的特点</h4><ul>
+<li><p>key和value都允许为空</p>
+</li>
+<li><p>key重复会覆盖,value可以重复</p>
+</li>
+<li><p><strong>有序的</strong></p>
+</li>
+<li><p>LinkedHashMap是非线程安全的</p>
+</li>
+</ul>
+<h4 id="1-遍历方法"><a href="#1-遍历方法" class="headerlink" title="1. 遍历方法"></a>1. 遍历方法</h4><h5 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Iterator it = map.keySet().iterator();    </span><br><span class="line">    <span class="keyword">while</span> (it.hasNext()) &#123;    </span><br><span class="line">    Object key = iter.next();</span><br><span class="line">    Object val = map.get(key);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (Integer key : map.keySet()) &#123;</span><br><span class="line">    map.get(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>Set继承于Collection接口，是一个不允许出现重复元素，并且无序的集合，主要有HashSet和TreeSet两大实现类。</p>
+<p>在判断重复元素的时候，Set集合会调用hashCode()和equal()方法来实现。</p>
+<p>HashSet是哈希表结构，主要利用HashMap的key来存储元素，计算插入元素的hashCode来获取元素在集合中的位置；</p>
+<p>TreeSet是红黑树结构，每一个元素都是树中的一个节点，插入的元素都会进行排序；</p>
+<h4 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HashSet的实现原理总结如下：</span><br><span class="line"></span><br><span class="line">①是基于HashMap实现的，默认构造函数是构建一个初始容量为16，负载因子为0.75 的HashMap。封装了一个 HashMap 对象来存储所有的集合元素，所有放入 HashSet 中的集合元素实际上由 HashMap 的 key 来保存，而 HashMap 的 value 则存储了一个 PRESENT，它是一个静态的 Object 对象。</span><br><span class="line"></span><br><span class="line">②当我们试图把某个类的对象当成 HashMap的 key，或试图将这个类的对象放入 HashSet 中保存时，重写该类的equals(Object obj)方法和 hashCode() 方法很重要，而且这两个方法的返回值必须保持一致：当该类的两个的 hashCode() 返回值相同时，它们通过 equals() 方法比较也应该返回 true。通常来说，所有参与计算 hashCode() 返回值的关键属性，都应该用于作为 equals() 比较的标准。</span><br><span class="line"></span><br><span class="line">③HashSet的其他操作都是基于HashMap的。</span><br><span class="line"></span><br><span class="line">数组实现</span><br></pre></td></tr></table></figure>
+
+<h3 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、Vector是线程安全的，ArrayList是线程非安全的</span><br><span class="line">2、Vector可以指定增长因子，如果该增长因子指定了，那么扩容的时候会每次新的数组大小会在原数组的大小基础上加上增长因子；如果不指定增长因子，那么就给原数组大小*2</span><br></pre></td></tr></table></figure>
+
+<h3 id="为什么要包装类"><a href="#为什么要包装类" class="headerlink" title="为什么要包装类"></a>为什么要包装类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. object具备generic的能力，更抽象，解决业务问题编程效率高。</span><br><span class="line">2. 原始数据类型和 Java 泛型并不能配合使用。Java的泛型某种程度上可以算作违反性，它完全是一种编译期的技巧，Java编译期会自动将类型转换为对应的特定类型，这就决定了使用泛型，必须保证相应类型可以转换为Object。</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/rarcard.github.io/2020/06/03/%E5%9F%9F/" rel="next" title="域">
+                <i class="fa fa-chevron-left"></i> 域
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/rarcard.github.io/2020/06/23/Java%E3%80%81Interface%E3%80%81abstract/" rel="prev" title="Java、Interface、abstract">
+                Java、Interface、abstract <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/rarcard.github.io/images/av.jpg"
+               alt="rarcard" />
+          <p class="site-author-name" itemprop="name">rarcard</p>
+           
+              <p class="site-description motion-element" itemprop="description">关于我学习技术的一个小探索</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/rarcard.github.io/archives/">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/rarcard.github.io/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/rarcard.github.io/tags/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rarcard" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="qwerdfbg123456@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-容器"><span class="nav-number">1.</span> <span class="nav-text">java 容器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导入"><span class="nav-number">1.1.</span> <span class="nav-text">导入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、List、Map、Set之间的联系与区别"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、List、Map、Set之间的联系与区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-数组和集合的区别"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">1. 数组和集合的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-collection和map的区别"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">2. collection和map的区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、重载和多态"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、重载和多态</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1）重载"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">1）重载</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2）重载总结"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">2）重载总结</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3）多态"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">3）多态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4）类初始化"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">4）类初始化</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、继承"><span class="nav-number">1.1.3.</span> <span class="nav-text">3、继承</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#继承的限制"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">继承的限制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#继承"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">继承</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map"><span class="nav-number">1.2.</span> <span class="nav-text">map</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-特点"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-常用实现类"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 常用实现类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashMap"><span class="nav-number">1.3.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedHashMap的特点"><span class="nav-number">1.3.1.</span> <span class="nav-text">LinkedHashMap的特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-遍历方法"><span class="nav-number">1.3.2.</span> <span class="nav-text">1. 遍历方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#迭代器"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#foreach"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">foreach</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">1.4.</span> <span class="nav-text">Set</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashSet"><span class="nav-number">1.4.1.</span> <span class="nav-text">HashSet</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vector"><span class="nav-number">1.5.</span> <span class="nav-text">Vector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要包装类"><span class="nav-number">1.6.</span> <span class="nav-text">为什么要包装类</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">rarcard</span>
+</div>
+
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/rarcard.github.io/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

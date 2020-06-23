@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script data-ad-client="ca-pub-2453437905270416" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/rarcard.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/rarcard.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/rarcard.github.io/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/rarcard.github.io/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Spring目的12解决企业应用开发的复杂性Spring的一个最大的目的就是使JAVA EE开发更加容易。  从概念上讲：Spring 容器是 Spring 框架的核心，是用来管理对象的。容器将创建对象，把它们连接在一起，配置它们，并管理他们的整个生命周期从创建到销毁。        从具象化讲：在java项目中，我们使用实现了org.springframework.context.Applica">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring">
+<meta property="og:url" content="https://rarcard.github.io/2020/06/23/Spring/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Spring目的12解决企业应用开发的复杂性Spring的一个最大的目的就是使JAVA EE开发更加容易。  从概念上讲：Spring 容器是 Spring 框架的核心，是用来管理对象的。容器将创建对象，把它们连接在一起，配置它们，并管理他们的整个生命周期从创建到销毁。        从具象化讲：在java项目中，我们使用实现了org.springframework.context.Applica">
+<meta property="og:image" content="https://pics6.baidu.com/feed/f3d3572c11dfa9ec649f5e4e06206d07908fc12f.jpeg?token=61de63876d3ba33bbd6166fa468c01e2&s=49A8347287B244235E7D41DE000080B1">
+<meta property="article:published_time" content="2020-06-23T05:45:15.964Z">
+<meta property="article:modified_time" content="2020-06-22T11:32:40.984Z">
+<meta property="article:author" content="rarcard">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pics6.baidu.com/feed/f3d3572c11dfa9ec649f5e4e06206d07908fc12f.jpeg?token=61de63876d3ba33bbd6166fa468c01e2&s=49A8347287B244235E7D41DE000080B1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/rarcard.github.io/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://rarcard.github.io/2020/06/23/Spring/"/>
+
+
+
+
+
+  <title>Spring | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/rarcard.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">rarcard的第一个blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/rarcard.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/rarcard.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/rarcard.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/rarcard.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/rarcard.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/rarcard.github.io/2020/06/23/Spring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rarcard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/rarcard.github.io/images/av.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Spring</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-23T13:45:15+08:00">
+                2020-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 阅读次数：</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解决企业应用开发的复杂性</span><br><span class="line">Spring的一个最大的目的就是使JAVA EE开发更加容易。</span><br></pre></td></tr></table></figure>
+
+<p><strong>从概念上讲</strong>：Spring 容器是 Spring 框架的核心，是用来管理对象的。<strong>容器</strong>将创建对象，把它们连接在一起，配置它们，并管理他们的整个生命周期从创建到销毁。<br>        <strong>从具象化讲</strong>：在java项目中，我们使用实现了org.springframework.context.ApplicationContext接口的实现类。在web项目中，我们使用spring.xml——Spring的配置文件。<br>        <strong>从代码上讲</strong>：一个Spring容器就是某个实现了ApplicationContext接口的类的实例。也就是说，从代码层面，Spring容器其实就是一个ApplicationContext（一个实例化对象）。</p>
+<h3 id="一、Spring工作原理"><a href="#一、Spring工作原理" class="headerlink" title="一、Spring工作原理"></a>一、Spring工作原理</h3><p>Spring的工作原理就是让一个对象的创建不用new就可以自动的生产，在运行时与xml Spring的配置文件来动态的创建对象和调用对象，而不需要通过代码来关联</p>
+<p><img src="https://pics6.baidu.com/feed/f3d3572c11dfa9ec649f5e4e06206d07908fc12f.jpeg?token=61de63876d3ba33bbd6166fa468c01e2&s=49A8347287B244235E7D41DE000080B1" alt="img"></p>
+<h4 id="1、Spring的概念"><a href="#1、Spring的概念" class="headerlink" title="1、Spring的概念"></a>1、Spring的概念</h4><p>Spring是一种多层的J2EE应用程序框架，<strong>其核心就是提供一种新的机制管理业务对象及其依赖关系</strong>。它是一种容器框架，用于创建bean，维护bean之间的关系，它可以管理web层，持久层，业务层等，可以配置各个层的组件并且维护各个层的关系</p>
+<h4 id="2、Spring特点"><a href="#2、Spring特点" class="headerlink" title="2、Spring特点"></a>2、Spring特点</h4><p>（1）轻量级：轻量级是针对重量级容器（EJB）来说的，Spring的核心包就不到1M大小，而使用Spring的核心包所需的资源也很小，所以可以在小型设备中使用。</p>
+<p>（2）非入侵式：Spring目标是一个非入侵式的服务框架。原因是所有框架都是提供大量的功能供用户去使用，从而简化开发时间和成本，但由于大量的使用了框架的API，使应用程序和框架发生了大量的依赖性，无法从框架中独立出来，更加无法使程序组件在其他程序中使用。</p>
+<p>（3）容器：Spring提供了容器功能，容器可以管理对象的生命周期、对象与对象间的关系、我们可以通过编写XML来设置对象关系和初始值，这样容器在启动之后，所有的对象都直接可以使用，不用编写任何编码来产生对象。Spring有两种不同的容器：<strong>Bean工厂以及应用上下文</strong></p>
+<h4 id="3、Spring工作原理"><a href="#3、Spring工作原理" class="headerlink" title="3、Spring工作原理"></a>3、Spring工作原理</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IOC即是控制反转，把创建对象的控制权交给第三方则叫反转。正转则是一般性的j2ee new对象式的开发，多个Bean的容器则叫做IOC容器。反转大大降低了代码的耦合性。</span><br></pre></td></tr></table></figure>
+
+<p>Spring内部最核心的就是IOC了，动态注入，让一个对象的创建不用new了，可以自动的生产，这其实就是利用java里的反射，反射其实就是在运行时动态的去创建、调用对象，Spring就是在运行时，跟xml Spring的配置文件来动态的创建对象和调用对象里的方法的 。</p>
+<p>Spring还有一个核心就是AOP面向切面编程，可以为某一类对象进行监督和控制（也就是在调用这类对象的具体方法的前后去调用你指定的模块）从而达到对一个模块扩充的功能。这些都是通过配置类达到的。</p>
+<p>Spring目地就是让对象与对象（模块与模块）之间的关系没有通过代码来关联，都是通过配置类说明管理的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.谁控制谁：在传统的开发模式下，我们都是采用直接 new 一个对象的方式来创建对象，也就是说你依赖的对象直接由你自己控制，但是有了 IOC 容器后，则直接由 IoC 容器来控制。所以“谁控制谁”，当然是 IoC 容器控制对象。</span><br><span class="line">2.控制什么：控制对象。</span><br><span class="line">3.为何是反转：没有 IoC 的时候我们都是在自己对象中主动去创建被依赖的对象，这是正转。但是有了 IoC 后，所依赖的对象直接由 IoC 容器创建后注入到被注入的对象中，依赖的对象由原来的主动获取变成被动接受，所以是反转。</span><br><span class="line">4.哪些方面反转了：所依赖对象的获取被反转了。</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用：</strong></p>
+<p>　通过IOC的注册机制可以保证对象的安全性和合规性；</p>
+<p>　实例化对象只需要实例化一次，即可进入IOC容器的bean缓存池，降低了对象的创建开销，提高了程序的性能（有点类似单例）；</p>
+<p>　应用程序调用对象从bean缓存池获取，这样是秒获取对象，提高了调用对象的速度。</p>
+<h4 id="4、bean"><a href="#4、bean" class="headerlink" title="4、bean"></a>4、bean</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在 Spring 中，构成应用程序主干并由Spring IoC容器管理的对象称为bean。bean是一个由Spring IoC容器实例化、组装和管理的对象。</span><br><span class="line"></span><br><span class="line">spring Bean是自动被spring IOC容器管理的java对象，加上@Bean注解的方法可以被IOC容器自动实例化。</span><br><span class="line"></span><br><span class="line">@Bean明确地指示了一种方法，什么方法呢——产生一个Bean的方法，并且交给Spring IOC容器管理；从这我们就明白了为啥@Bean是放在方法上了，因为它很明确地告诉被注释的方法，你给我产生一个Bean，然后交给Spring IOC容器，剩下的程序员就别管了。</span><br></pre></td></tr></table></figure>
+
+<p><strong>具体：</strong></p>
+<ol>
+<li>bean是对象，一个或者多个不限定</li>
+<li>bean由Spring中一个叫IoC的东西管理</li>
+<li>我们的应用程序由一个个bean构成</li>
+</ol>
+<h4 id="5、AOP"><a href="#5、AOP" class="headerlink" title="5、AOP"></a>5、AOP</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">感觉解释的好累啊，简单总结就一句话：对所有符合规则的一些方法做拦截，先执行我自定义的方法，再执行被拦截的方法</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h3><h5 id="1-POJO"><a href="#1-POJO" class="headerlink" title="1.POJO"></a>1.POJO</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POJO（Plain Ordinary Java Object）简单的Java对象，实际就是普通JavaBeans，是为了避免和EJB混淆所创造的简称。</span><br></pre></td></tr></table></figure>
+
+<p>POJO是Plain OrdinaryJava Object的缩写，但是它通指没有使用Entity Beans的普通java对象，可以把POJO作为支持业务逻辑的协助类。</p>
+<p>POJO实质上可以理解为简单的实体类，顾名思义POJO类的作用是方便程序员使用数据库中的数据表，对于广大的程序员，可以很方便的将POJO类当做对象来进行使用，当然也是可以方便的调用其get,set方法。POJO类也给我们在struts框架中的配置带来了很大的方便。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POJO 和JavaBean是我们常见的两个关键字，一般容易混淆，POJO全称是Plain Ordinary Java Object &#x2F; Pure Old Java Object，中文可以翻译成：普通Java类，具有一部分getter&#x2F;setter方法的那种类就可以称作POJO，但是JavaBean则比 POJO复杂很多， Java Bean 是可复用的组件，对 Java Bean 并没有严格的规范，理论上讲，任何一个 Java 类都可以是一个 Bean 。但通常情况下，由于 Java Bean 是被容器所创建（如 Tomcat) 的，所以 Java Bean 应具有一个无参的构造器，另外，通常 Java Bean 还要实现 Serializable 接口用于实现 Bean 的持久性。 Java Bean 是不能被跨进程访问的。JavaBean是一种组件技术，就好像你做了一个扳子，而这个扳子会在很多地方被拿去用，这个扳子也提供多种功能(你可以拿这个扳子扳、锤、撬等等)，而这个扳子就是一个组件。一般在web应用程序中建立一个数据库的映射对象时，我们只能称它为POJO。POJO(Plain Old Java Object)这个名字用来强调它是一个普通java对象，而不是一个特殊的对象，其主要用来指代那些没有遵从特定的Java对象模型、约定或框架（如EJB）的Java对象。理想地讲，一个POJO是一个不受任何限制的Java对象（除了Java语言规范）</span><br></pre></td></tr></table></figure>
+
+<p>即POJO是一个简单的普通的Java对象，它不包含<a href="https://baike.baidu.com/item/业务逻辑" target="_blank" rel="noopener">业务逻辑</a>或持久逻辑等，但不是JavaBean、EntityBean等，不具有任何特殊角色和不继承或不实现任何其它Java框架的类或接口。</p>
+<h6 id="POJO规范"><a href="#POJO规范" class="headerlink" title="POJO规范"></a>POJO规范</h6><ol>
+<li><p>所有属性都必须是private</p>
+</li>
+<li><p>所有外部访问必须通过setter、getter</p>
+</li>
+<li><p>不能有extend</p>
+</li>
+<li><p>不能有implments</p>
+</li>
+<li><p>不能包含预定注解，如@Entity public class Hello</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/rarcard.github.io/2020/06/23/java%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="next" title="java 多线程">
+                <i class="fa fa-chevron-left"></i> java 多线程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/rarcard.github.io/2020/06/23/%E5%91%BD%E4%BB%A4%E8%A1%8C/" rel="prev" title="命令行">
+                命令行 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/rarcard.github.io/images/av.jpg"
+               alt="rarcard" />
+          <p class="site-author-name" itemprop="name">rarcard</p>
+           
+              <p class="site-description motion-element" itemprop="description">关于我学习技术的一个小探索</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/rarcard.github.io/archives/">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/rarcard.github.io/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/rarcard.github.io/tags/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rarcard" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="qwerdfbg123456@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring"><span class="nav-number">1.</span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#目的"><span class="nav-number">1.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、Spring工作原理"><span class="nav-number">1.2.</span> <span class="nav-text">一、Spring工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、Spring的概念"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、Spring的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、Spring特点"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、Spring特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、Spring工作原理"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、Spring工作原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、bean"><span class="nav-number">1.2.4.</span> <span class="nav-text">4、bean</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、AOP"><span class="nav-number">1.2.5.</span> <span class="nav-text">5、AOP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#名词解释"><span class="nav-number">1.3.</span> <span class="nav-text">名词解释</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-POJO"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">1.POJO</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#POJO规范"><span class="nav-number">1.3.0.1.1.</span> <span class="nav-text">POJO规范</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">rarcard</span>
+</div>
+
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/rarcard.github.io/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

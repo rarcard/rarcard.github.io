@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script data-ad-client="ca-pub-2453437905270416" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/rarcard.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/rarcard.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/rarcard.github.io/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/rarcard.github.io/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="如何保证软件质量软件质量保证软件定义1软件是计算机程序、规程以及可能的相关文档和运行计算机系统需要的数据。  软件包含计算机程序、规程、文档和软件系统运行所必需的数据四个部分。 软件三特征 只能开发 无磨损 不能组装  质量管理铁三角 软件质量保证概念建立一套有计划，有系统的方法，来向管理层保证拟定出的标准、步骤、实践和方法能够正确地被所有项目所采用； 目的是使软件过程对于管理人员来说是可见的；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何保证软件质量">
+<meta property="og:url" content="https://rarcard.github.io/2020/06/23/%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="如何保证软件质量软件质量保证软件定义1软件是计算机程序、规程以及可能的相关文档和运行计算机系统需要的数据。  软件包含计算机程序、规程、文档和软件系统运行所必需的数据四个部分。 软件三特征 只能开发 无磨损 不能组装  质量管理铁三角 软件质量保证概念建立一套有计划，有系统的方法，来向管理层保证拟定出的标准、步骤、实践和方法能够正确地被所有项目所采用； 目的是使软件过程对于管理人员来说是可见的；">
+<meta property="og:image" content="https://rarcard.github.io/rarcard.github.io/2020/06/23/%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F/E:%5C2020%5Cjavabk%5Cpic%5CQQ%E6%88%AA%E5%9B%BE20200605150408.png">
+<meta property="og:image" content="https://rarcard.github.io/rarcard.github.io/2020/06/23/%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F/E:%5C2020%5Cjavabk%5Cpic%5C20180802205308622.png">
+<meta property="article:published_time" content="2020-06-23T05:45:16.021Z">
+<meta property="article:modified_time" content="2020-06-05T15:54:02.969Z">
+<meta property="article:author" content="rarcard">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://rarcard.github.io/rarcard.github.io/2020/06/23/%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F/E:%5C2020%5Cjavabk%5Cpic%5CQQ%E6%88%AA%E5%9B%BE20200605150408.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/rarcard.github.io/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://rarcard.github.io/2020/06/23/如何保证软件质量/"/>
+
+
+
+
+
+  <title>如何保证软件质量 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/rarcard.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">rarcard的第一个blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/rarcard.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/rarcard.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/rarcard.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/rarcard.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/rarcard.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/rarcard.github.io/2020/06/23/%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rarcard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/rarcard.github.io/images/av.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">如何保证软件质量</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-23T13:45:16+08:00">
+                2020-06-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 阅读次数：</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="如何保证软件质量"><a href="#如何保证软件质量" class="headerlink" title="如何保证软件质量"></a>如何保证软件质量</h2><h3 id="软件质量保证"><a href="#软件质量保证" class="headerlink" title="软件质量保证"></a>软件质量保证</h3><h5 id="软件定义"><a href="#软件定义" class="headerlink" title="软件定义"></a>软件定义</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">软件是计算机程序、规程以及可能的相关文档和运行计算机系统需要的数据。</span><br></pre></td></tr></table></figure>
+
+<p>软件包含计算机程序、规程、文档和软件系统运行所必需的数据四个部分。</p>
+<h5 id="软件三特征"><a href="#软件三特征" class="headerlink" title="软件三特征"></a>软件三特征</h5><ol>
+<li>只能开发</li>
+<li>无磨损</li>
+<li>不能组装</li>
+</ol>
+<h5 id="质量管理铁三角"><a href="#质量管理铁三角" class="headerlink" title="质量管理铁三角"></a>质量管理铁三角</h5><p><img src="/rarcard.github.io/2020/06/23/%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F/E:%5C2020%5Cjavabk%5Cpic%5CQQ%E6%88%AA%E5%9B%BE20200605150408.png" alt></p>
+<h5 id="软件质量保证概念"><a href="#软件质量保证概念" class="headerlink" title="软件质量保证概念"></a>软件质量保证概念</h5><p>建立一套<strong>有计划</strong>，<strong>有系统</strong>的方法，来向管理层保证拟定出的标准、步骤、实践和方法能够正确地被所有项目所采用；</p>
+<p>目的是使<strong>软件过程</strong>对于管理人员来说是可见的；</p>
+<p>通过对软件产品和活动进行评审和审计来验证软件是合乎标准的</p>
+<h5 id="软件质量保证目标"><a href="#软件质量保证目标" class="headerlink" title="软件质量保证目标"></a>软件质量保证目标</h5><blockquote>
+<p>目标 1: 软件质量保证工作是有计划进行的。</p>
+<p>目标 2: 客观地验证软件项目产品和工作是否遵循恰当的标准、步骤和需求。</p>
+<p>目标 3: 将软件质量保证工作及结果通知给相关组别和个人。</p>
+<p>目标 4: 高级管理层接触到在项目内部不能解决的不符合类问题。</p>
+<p>目标 5: 软件质量需要全面的测试工作来保证。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">（1）事前预防工作，例如，着重于缺陷预防而不是缺陷检查。</span><br><span class="line">（2）尽量在刚刚引入缺陷时即将其捕获，而不是让缺陷扩散到下一个阶段。</span><br><span class="line">（3）作用于过程而不是最终产品，因此它有可能会带来广泛的影响与巨大的收益。</span><br><span class="line">（4）贯穿于所有的活动之中，而不是只集中于一点。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">软件质量保证以用户需求和开发任务为依据，对质量需求准则、质量设计准则的质量特性设定质量目标进行评价。</span><br><span class="line">软件质量保证保证工作是有计划的进行的。设定适合于待开发软件的评测检查项目，一般设定20-30个。</span><br><span class="line">将软件质量保证工作及结果通知给相关组别和个人，在开发标准和质量评价准则的指导下，制作高质量的规格说明书和程序。</span><br><span class="line">客观地验证软件项目产品和工作是否遵循恰当的标准、步骤和需求。以计划阶段设定的质量评价准则进行评价，算出得分，以图形的形式表示出来，比较评价结果的质量得分和质量目标，确定是否合格。</span><br><span class="line">对评价发现的问题进行改进活动，重复计划到改进的过程直到开发项目完成。</span><br><span class="line">通过软件质量保证的这五个步骤，即制定目标、计划、执行方案、检查计划、改进方案。我们可以有效地提高软件地质量。</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="QA"><a href="#QA" class="headerlink" title="QA"></a>QA</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">审计过程的质量，保证过程被正确执行；是过程质量审计者</span><br></pre></td></tr></table></figure>
+
+<h5 id="软件质量主要内容"><a href="#软件质量主要内容" class="headerlink" title="软件质量主要内容"></a>软件质量主要内容</h5><ol>
+<li>功能性</li>
+<li>可移植性</li>
+<li>可维护性</li>
+<li>可靠性</li>
+<li>易用性</li>
+<li>效率</li>
+</ol>
+<h5 id="软件测试的定义"><a href="#软件测试的定义" class="headerlink" title="软件测试的定义"></a>软件测试的定义</h5><p>使用人工或自动的手段来运行或测定某个软件系统的过程，其目的在于检验它是否满足规定的需求或弄清预期结果与实际结果之间的差别。是帮助识别开发完成（中间或最终的版本）的计算机软件（整体或部分）的正确度(Correctness) 、完全度(Completeness)和质量(Quality)的软件过程；</p>
+<p>软件测试是为了发现程序中的错误而执行的过程。</p>
+<h5 id="软件产品说明书"><a href="#软件产品说明书" class="headerlink" title="软件产品说明书"></a>软件产品说明书</h5><p>是软件开发小组的一个协定。、</p>
+<p>它对开发的产品进行定义，给出产品的细节、如何做、做什么、不能做什么。</p>
+<h5 id="软件缺陷"><a href="#软件缺陷" class="headerlink" title="软件缺陷"></a>软件缺陷</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">软件未达到产品说明书（简称，SPEC）标明的功能；</span><br><span class="line">软件出现了产品说明书指明不会出现的错误；</span><br><span class="line">软件功能超出产品说明书指明范围；</span><br><span class="line">软件未达到产品说明书虽未指出但应达到的目标，此条的目的是抓住产品说明书上遗漏之处；</span><br><span class="line">软件测试员认为软件难以理解、不易使用、运行速度缓慢，或者最终用户认为不好。</span><br></pre></td></tr></table></figure>
+
+<h5 id="软件缺陷产生原因"><a href="#软件缺陷产生原因" class="headerlink" title="软件缺陷产生原因"></a>软件缺陷产生原因</h5><ol>
+<li><p>软件模型或者说业务建模制定不正确，或者说规格不明确或有错误，没有能很好的描述要开发的软件，这类原因占了70%左右，并且很难于纠正；</p>
+</li>
+<li><p>软件庞大，功能十分复杂；</p>
+</li>
+<li><p>编程过程出错，此类原因导致的错误大概占20%，一般来说比较容易纠正；</p>
+</li>
+<li><p>个别功能要求改变而影响到其他部分；</p>
+</li>
+<li><p>与软件对接的第三方软件有缺陷；</p>
+</li>
+<li><p>人为因素：项目组管理方法、进度要求时间紧、配备人力不足、组内及组外沟通不充分等几种情况。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	从产品内部看：</span><br><span class="line">软件缺陷是软件产品开发或维护过程中所存在的错误、毛病等各种问题。</span><br><span class="line">	从产品外部看：</span><br><span class="line">软件缺陷是系统所需要实现的某种功能的失效或违背。</span><br></pre></td></tr></table></figure>
+
+<h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">软件需求说明：需求不正确，不完全，文档有误等；</span><br><span class="line">功能和性能错误：遗漏功能、规定的一些冗余功能、异常处理有误等；</span><br><span class="line">软件系统结构错误：系统整体架构有误；</span><br><span class="line">软件结构错误：程序控制顺序有误，处理过程有误；</span><br><span class="line">软件集成错误：接口有误；</span><br><span class="line">数据错误：数据定义或者数据结构有错，数据存取或者操作误，例如：动态数据和静态数据混淆。</span><br><span class="line">软件实现和编码错误：违背编码标准，例如：局部变量和全局变量混淆</span><br><span class="line">测试定义与测试执行错误：测试计划不完整，测试用例不充分等。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="黑盒测试"><a href="#黑盒测试" class="headerlink" title="黑盒测试"></a>黑盒测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过测试来检测每个功能是否都能正常使用；在测试中把软件看做一个不能打开的黑盒子，在不考虑程序内部结构和内部特性的情况下，来检查程序功能是否按照规格说明书的规定正常使用；</span><br></pre></td></tr></table></figure>
+
+<p>以用户的角度，从输入数据与输出数据的对应关系出发进行测试；着眼于程序外部结构，不考虑内部逻辑结构，主要针对软件界面和软件功能进行测试。</p>
+<h5 id="黑盒测试类型错误"><a href="#黑盒测试类型错误" class="headerlink" title="黑盒测试类型错误"></a>黑盒测试类型错误</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">功能错误或遗漏；</span><br><span class="line">界面错误；</span><br><span class="line">输入和输出错误；</span><br><span class="line">数据结构或外部数据库访问错误；</span><br><span class="line">性能错误；</span><br><span class="line">初始化和终止错误。</span><br></pre></td></tr></table></figure>
+
+<h3 id="白盒测试"><a href="#白盒测试" class="headerlink" title="白盒测试"></a>白盒测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">黑盒测试、白盒测试、单元测试：开发人员分在不同的开发阶段要做的事情</span><br><span class="line">黑盒测试、集成测试、系统测试：测试人员在测试周期内级层做的工作</span><br></pre></td></tr></table></figure>
+
+<p><strong>黑盒测试：不考虑程序内部结构和逻辑结构，主要是用来测试系统的功能是否满足需求规格说明书。</strong> </p>
+<p><strong>白盒测试：主要应用在单元测试阶段，主要是对代码级的测试，针对程序内部逻辑构，测试手段有：语句覆盖、判定覆盖、条件覆盖、路径覆盖、条件组合覆盖</strong></p>
+<h4 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">单元测试 粒度最小，一般由开发小组采用白盒方式来测试，主要测试单元是否符合“设计”。</span><br></pre></td></tr></table></figure>
+
+<p>单元测试（unit testing），是指对软件中的最小可测试单元进行检查和验证。对于单元测试中单元的含义，一般来说，要根据实际情况去判定其具体含义，如C语言中单元指一个函数，Java里单元指一个类，图形化的软件中可以指一个窗口或一个菜单等。总的来说，单元就是人为规定的最小的被测功能模块。单元测试是在软件开发过程中要进行的最低级别的测试活动，软件的独立单元将在与程序的其他部分相隔离的情况下进行测试。</p>
+<h4 id="集成测试"><a href="#集成测试" class="headerlink" title="集成测试"></a>集成测试</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">集成测试 界于单元测试和系统测试之间，起到“桥梁作用”，一般由开发小组采用白盒加黑盒的方式来测试，既验证“设计”，又验证“需求”。 主要用来测试模块与模块之间的接口，同时还要测试一些主要业务功能。</span><br></pre></td></tr></table></figure>
+
+<h4 id="系统测试"><a href="#系统测试" class="headerlink" title="系统测试"></a>系统测试</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">系统测试  粒度最大，一般由独立测试小组采用黑盒方式来测试，主要测试系统是否符合“需求规格说明书”。在经过以上各阶段测试确认之后，把系统完整地模拟客户环境来进行的测试。系统测试是将已经确认的软件、计算机硬件、外设、网络等其他元素结合在一起，进行信息系统的各种组装测试和确认测试</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="质量观"><a href="#质量观" class="headerlink" title="质量观"></a>质量观</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">质量标准由用户定义，而非企业定义</span><br><span class="line">质量的第一要素是人，优质的产品取决于优秀的人</span><br><span class="line">将世界作为我们的研发部，质量部才能满足用户全流程最佳体验</span><br></pre></td></tr></table></figure>
+
+<h3 id="SQA"><a href="#SQA" class="headerlink" title="SQA"></a>SQA</h3><h4 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SQA审计与评审，审计软件工作产品、工具及设备，评审软件工程活动；参考标准就是公司的各类规程</span><br><span class="line">SQA报告，记录工作结果，项目组成员及高级管理者均能方便得到该报告</span><br><span class="line">处理不符合问题，防止错误的发生，降低纠错成本</span><br></pre></td></tr></table></figure>
+
+<h4 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h4><p>–需求分析、规格定义、编码、测试、维护等阶段</p>
+<h4 id="活动"><a href="#活动" class="headerlink" title="活动"></a>活动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">识别质量需求</span><br><span class="line">参与项目计划制订</span><br><span class="line">制订SQA计划</span><br><span class="line">评审工作产品</span><br><span class="line">审计相关活动</span><br><span class="line">编制并提交报告</span><br><span class="line">处理不符合项</span><br><span class="line">监控软件产品质量</span><br><span class="line">收集项目各个阶段的数据</span><br></pre></td></tr></table></figure>
+
+<h5 id="过程标准"><a href="#过程标准" class="headerlink" title="过程标准"></a>过程标准</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">目标&#x2F;目的（Purpose）</span><br><span class="line">角色与职责（Role and Responsibility）</span><br><span class="line">入口准则（Entry Criteria）</span><br><span class="line">出口准则（Exit Criteria）</span><br><span class="line">输入（Inputs）</span><br><span class="line">输出（Outputs）</span><br><span class="line">流程图及活动说明（Activities）</span><br><span class="line">度量（Measures）</span><br><span class="line">验证（Verification）</span><br></pre></td></tr></table></figure>
+
+<h3 id="软件测试常见准则"><a href="#软件测试常见准则" class="headerlink" title="软件测试常见准则"></a>软件测试常见准则</h3><p>1.尽早地和及时地测试，BUG发现的越早，越容易修复。</p>
+<p>2.测试用例应当包含测试数据和与之对应的预期结果，并提前准备好数据。</p>
+<p>3.测试时即要考虑合理的输入条件又要包括不合理输入条件。</p>
+<p>4.程序提交测试后，应当有专门的测试人员进行测试（不能完全自测）。</p>
+<p>5.编制测试计划并严格执行，减少随意性测试。</p>
+<p>6.对每个测试结果做全面的检查，发现蛛丝马迹。</p>
+<p>7.缺陷会成群出现，注意测试当中的群体现象。</p>
+<p>8.保存测试计划、测试用例、出错统计和最终分析报告，直至软件退役。（其他一些准则，请参见软件工程的课件）【</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PM Newwork于1998年9月对23,000多个应用软件项目统计分析的结果显示：31%的项目在完成之前就被取消（$810亿的浪费）、53%的项目花费预算的189%。</span><br></pre></td></tr></table></figure>
+
+<p><img src="/rarcard.github.io/2020/06/23/%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F/E:%5C2020%5Cjavabk%5Cpic%5C20180802205308622.png" alt></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/rarcard.github.io/2020/06/23/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="next" title="排序算法">
+                <i class="fa fa-chevron-left"></i> 排序算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/rarcard.github.io/images/av.jpg"
+               alt="rarcard" />
+          <p class="site-author-name" itemprop="name">rarcard</p>
+           
+              <p class="site-description motion-element" itemprop="description">关于我学习技术的一个小探索</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/rarcard.github.io/archives/">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/rarcard.github.io/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/rarcard.github.io/tags/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/rarcard" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="qwerdfbg123456@163.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何保证软件质量"><span class="nav-number">1.</span> <span class="nav-text">如何保证软件质量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#软件质量保证"><span class="nav-number">1.1.</span> <span class="nav-text">软件质量保证</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#软件定义"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">软件定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#软件三特征"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">软件三特征</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#质量管理铁三角"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">质量管理铁三角</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#软件质量保证概念"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">软件质量保证概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#软件质量保证目标"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">软件质量保证目标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#QA"><span class="nav-number">1.1.0.6.</span> <span class="nav-text">QA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#软件质量主要内容"><span class="nav-number">1.1.0.7.</span> <span class="nav-text">软件质量主要内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#软件测试的定义"><span class="nav-number">1.1.0.8.</span> <span class="nav-text">软件测试的定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#软件产品说明书"><span class="nav-number">1.1.0.9.</span> <span class="nav-text">软件产品说明书</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#软件缺陷"><span class="nav-number">1.1.0.10.</span> <span class="nav-text">软件缺陷</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#软件缺陷产生原因"><span class="nav-number">1.1.0.11.</span> <span class="nav-text">软件缺陷产生原因</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分类"><span class="nav-number">1.1.0.12.</span> <span class="nav-text">分类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#黑盒测试"><span class="nav-number">1.2.</span> <span class="nav-text">黑盒测试</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#黑盒测试类型错误"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">黑盒测试类型错误</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#白盒测试"><span class="nav-number">1.3.</span> <span class="nav-text">白盒测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单元测试"><span class="nav-number">1.3.1.</span> <span class="nav-text">单元测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集成测试"><span class="nav-number">1.3.2.</span> <span class="nav-text">集成测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#系统测试"><span class="nav-number">1.3.3.</span> <span class="nav-text">系统测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#质量观"><span class="nav-number">1.4.</span> <span class="nav-text">质量观</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQA"><span class="nav-number">1.5.</span> <span class="nav-text">SQA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#任务"><span class="nav-number">1.5.1.</span> <span class="nav-text">任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#目标"><span class="nav-number">1.5.2.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#活动"><span class="nav-number">1.5.3.</span> <span class="nav-text">活动</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#过程标准"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">过程标准</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件测试常见准则"><span class="nav-number">1.6.</span> <span class="nav-text">软件测试常见准则</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">rarcard</span>
+</div>
+
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/rarcard.github.io/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/rarcard.github.io/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/rarcard.github.io/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
