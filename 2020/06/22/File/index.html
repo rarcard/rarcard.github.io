@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>File | Hexo</title><meta name="description" content="File前言1File类：文件和目录路径名的抽象表示形式。在Java.io包下，文件和目录都是使用File来操作的，但File不能访问文件本身，这时要借助IO流。    构造函数   Constructor and Description 备注    File(File parent, String child)  从父抽象路径名和子路径名字符串创建新的 File实例。 父抽象名：文件夹；   F"><meta name="keywords" content="IO"><meta name="author" content="rarcard"><meta name="copyright" content="rarcard"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/rarcard.github.io/img/favicon.png"><link rel="canonical" href="https://rarcard.github.io/2020/06/22/File/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="File"><meta property="og:url" content="https://rarcard.github.io/2020/06/22/File/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="File前言1File类：文件和目录路径名的抽象表示形式。在Java.io包下，文件和目录都是使用File来操作的，但File不能访问文件本身，这时要借助IO流。    构造函数   Constructor and Description 备注    File(File parent, String child)  从父抽象路径名和子路径名字符串创建新的 File实例。 父抽象名：文件夹；   F"><meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><meta property="article:published_time" content="2020-06-22T13:46:12.000Z"><meta property="article:modified_time" content="2020-06-24T10:19:26.420Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/rarcard.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="prev" title="Java容器" href="https://rarcard.github.io/2020/06/22/Java%E5%AE%B9%E5%99%A8/"><link rel="next" title="Hash" href="https://rarcard.github.io/2020/06/21/Hash/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/rarcard.github.io/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/rarcard.github.io/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/rarcard.github.io/archives/"><div class="headline">文章</div><div class="length_num">25</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/rarcard.github.io/tags/"><div class="headline">标签</div><div class="length_num">18</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/rarcard.github.io/categories/"><div class="headline">分类</div><div class="length_num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/rarcard.github.io/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/rarcard.github.io/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/rarcard.github.io/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#File"><span class="toc-number">1.</span> <span class="toc-text">File</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数"><span class="toc-number">1.2.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用函数"><span class="toc-number">1.3.</span> <span class="toc-text">常用函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1、boolean-createNewFile"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">1、boolean createNewFile()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2、boolean-mkdir"><span class="toc-number">1.3.0.2.</span> <span class="toc-text">2、boolean mkdir()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3、boolean-mkdirs"><span class="toc-number">1.3.0.3.</span> <span class="toc-text">3、boolean mkdirs()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4、boolean-exists"><span class="toc-number">1.3.0.4.</span> <span class="toc-text">4、boolean exists()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6、String-getName"><span class="toc-number">1.3.0.5.</span> <span class="toc-text">6、String getName()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7、String-getParent"><span class="toc-number">1.3.0.6.</span> <span class="toc-text">7、String getParent()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8、File-getParentFile"><span class="toc-number">1.3.0.7.</span> <span class="toc-text">8、File getParentFile()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9、String-getAbsolutePath"><span class="toc-number">1.3.0.8.</span> <span class="toc-text">9、String getAbsolutePath()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#10、boolean-delete"><span class="toc-number">1.3.0.9.</span> <span class="toc-text">10、boolean delete()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#11、boolean-isFile"><span class="toc-number">1.3.0.10.</span> <span class="toc-text">11、boolean isFile()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#12、boolean-isHidden"><span class="toc-number">1.3.0.11.</span> <span class="toc-text">12、boolean isHidden()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#13、String-list"><span class="toc-number">1.3.0.12.</span> <span class="toc-text">13、String[] list()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#14、File-listFiles"><span class="toc-number">1.3.0.13.</span> <span class="toc-text">14、File [] listFiles()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#15、boolean-renameTo-File-dest"><span class="toc-number">1.3.0.14.</span> <span class="toc-text">15、boolean renameTo(File dest)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#16、isDirectory"><span class="toc-number">1.3.0.15.</span> <span class="toc-text">16、isDirectory()</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三种文件创建方式"><span class="toc-number">1.3.1.</span> <span class="toc-text">三种文件创建方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-number">1.4.</span> <span class="toc-text">参考</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/rarcard.github.io/">Hexo</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/rarcard.github.io/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/rarcard.github.io/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/rarcard.github.io/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">File</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-06-22 21:46:12"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2020-06-22</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-06-24 18:19:26"><i class="fas fa-history fa-fw"></i> 更新于 2020-06-24</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/rarcard.github.io/categories/Java/">Java</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="File"><a href="#File" class="headerlink" title="File"></a>File</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">File类：文件和目录路径名的抽象表示形式。在Java.io包下，文件和目录都是使用File来操作的，但File不能访问文件本身，这时要借助IO流。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><table>
+<thead>
+<tr>
+<th>Constructor and Description</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>File(File parent, String child)</code>  从父抽象路径名和子路径名字符串创建新的 <code>File</code>实例。</td>
+<td>父抽象名：文件夹；</td>
+</tr>
+<tr>
+<td><code>File(String pathname)</code>  通过将给定的路径名字符串转换为抽象路径名来创建新的 <code>File</code>实例。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>File(String parent,  String child)</code>  从父路径名字符串和子路径名字符串创建新的 <code>File</code>实例。</td>
+<td></td>
+</tr>
+<tr>
+<td><code>File(URI uri)</code>  通过将给定的 <code>file:</code> URI转换为抽象路径名来创建新的 <code>File</code>实例。</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>可以将一个已存在或不存在的文件或目录封装成file对象</p>
+<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><h5 id="1、boolean-createNewFile"><a href="#1、boolean-createNewFile" class="headerlink" title="1、boolean createNewFile()"></a>1、boolean createNewFile()</h5><p>创建一个新的文件，不包含上级目录（使用时上级目录必须不存在，否则会引发异常）不存在时创建，存在时不创建</p>
+<h5 id="2、boolean-mkdir"><a href="#2、boolean-mkdir" class="headerlink" title="2、boolean mkdir()"></a>2、boolean mkdir()</h5><p>创建此抽象路径名指定的目录。</p>
+<h5 id="3、boolean-mkdirs"><a href="#3、boolean-mkdirs" class="headerlink" title="3、boolean mkdirs()"></a>3、boolean mkdirs()</h5><p> 创建此抽象路径名指定的目录，包括所有必需但不存在的父目录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当父目录不存在时，会默认创建父目录</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="4、boolean-exists"><a href="#4、boolean-exists" class="headerlink" title="4、boolean exists()"></a>4、boolean exists()</h5><p>测试此抽象路径名表示的文件或目录是否存在。存在true</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">isfile()是判断是否为标准文件</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="6、String-getName"><a href="#6、String-getName" class="headerlink" title="6、String getName()"></a>6、String getName()</h5><p> 返回由此抽象路径名表示的文件或目录的名称（最后一级子目录）。（文件不存在也可用）</p>
+<h5 id="7、String-getParent"><a href="#7、String-getParent" class="headerlink" title="7、String getParent()"></a>7、String getParent()</h5><p>返回此抽象路径名父目录的路径名字符串；如果此路径名没有指定父目录，则返回 null。</p>
+<h5 id="8、File-getParentFile"><a href="#8、File-getParentFile" class="headerlink" title="8、File getParentFile()"></a>8、File getParentFile()</h5><p>返回此抽象路径名父目录的抽象路径名；如果此路径名没有指定父目录，则返回 null。</p>
+<h5 id="9、String-getAbsolutePath"><a href="#9、String-getAbsolutePath" class="headerlink" title="9、String getAbsolutePath()"></a>9、String getAbsolutePath()</h5><p>返回此抽象路径名的绝对路径名字符串。</p>
+<h5 id="10、boolean-delete"><a href="#10、boolean-delete" class="headerlink" title="10、boolean delete()"></a>10、boolean delete()</h5><p>删除此抽象路径名表示的文件或目录。（如果含有子文件或子文件夹则不能删除）（谨慎删除，不进回收站）（只能一级一级的删）（当文件被流正在操作，不能被删除，返回false）</p>
+<h5 id="11、boolean-isFile"><a href="#11、boolean-isFile" class="headerlink" title="11、boolean isFile()"></a>11、boolean isFile()</h5><p>测试此抽象路径名表示的文件是否是一个标准文件。（是的前提是存在）</p>
+<h5 id="12、boolean-isHidden"><a href="#12、boolean-isHidden" class="headerlink" title="12、boolean isHidden()"></a>12、boolean isHidden()</h5><p>测试此抽象路径名指定的文件是否是一个隐藏文件。</p>
+<h5 id="13、String-list"><a href="#13、String-list" class="headerlink" title="13、String[] list()"></a>13、String[] list()</h5><p>返回一个字符串数组，这些字符串指定此抽象路径名表示的当前目录中的文件和目录。(得到子文件列表，若为空目录，返回一个空的数组)（必须应用于文件夹，否则产生空指针异常，若为系统及目录，也会发生异常）（包含隐藏文件）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">显示文件夹下所有文件</span><br></pre></td></tr></table></figure>
+
+<h5 id="14、File-listFiles"><a href="#14、File-listFiles" class="headerlink" title="14、File [] listFiles()"></a>14、File [] listFiles()</h5><p>返回一个抽象路径名数组，这些路径名表示此抽象路径名表示的目录中的文件。(得到子文件列表)（必须应用于文件夹）</p>
+<h5 id="15、boolean-renameTo-File-dest"><a href="#15、boolean-renameTo-File-dest" class="headerlink" title="15、boolean renameTo(File dest)"></a>15、boolean renameTo(File dest)</h5><p>重新命名此抽象路径名表示的文件。（可用来实现文件的移动）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Files</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            File oldFile = <span class="keyword">new</span> File(<span class="string">"E:\\2019 junior\\Software\\vue\\src\\main\\java\\com\\example\\vue\\File\\filed\\test.text"</span>); <span class="comment">//源文件</span></span><br><span class="line">            <span class="keyword">if</span> (oldFile.renameTo(<span class="keyword">new</span> File(<span class="string">"E:\\2019 junior\\Software\\vue\\src\\main\\java\\com\\example\\vue\\File\\"</span> + oldFile.getName()))) <span class="comment">//源文件移动至目标文件目录</span></span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(<span class="string">"File is moved successful!"</span>);<span class="comment">//输出移动成功</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">"File is failed to move !"</span>);<span class="comment">//输出移动失败</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="16、isDirectory"><a href="#16、isDirectory" class="headerlink" title="16、isDirectory()"></a>16、isDirectory()</h5><p>测试此抽象路径名表示的文件是否为目录。 </p>
+<h4 id="三种文件创建方式"><a href="#三种文件创建方式" class="headerlink" title="三种文件创建方式"></a>三种文件创建方式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(<span class="string">"E:/..."</span>);<span class="comment">//文件/文件夹路径对象</span></span><br><span class="line">File file = <span class="keyword">new</span> File(<span class="string">"..."</span> ,<span class="string">""</span>...);<span class="comment">//父目录绝对路径 + 子目录名称</span></span><br><span class="line">File file = <span class="keyword">new</span> File(<span class="string">"..."</span>,<span class="string">"..."</span>);<span class="comment">//父目录File对象 + 子目录名称</span></span><br><span class="line"></span><br><span class="line">file.exists():判断文件/文件夹是否存在</span><br><span class="line">file.delete():删除文件/文件夹</span><br><span class="line">file.isDirectory():判读是否为目录</span><br><span class="line">file.isFile():判读是否为文件夹</span><br><span class="line">file.mkdir():创建文件夹(仅限一级目录)</span><br><span class="line">file.mkdirs():创建多及目录文件夹(包括但不限一级目录)</span><br><span class="line">file.createNewFile():创建文件</span><br><span class="line">file.getAbsolutePath():得到文件/文件夹的绝对路径</span><br><span class="line">file.getName():得到文件/文件夹的名字</span><br><span class="line">file.String():同样是得到文件/文件夹的绝对路径等于file.getAbsolutePath()</span><br><span class="line">file.getParent():得到父目录的绝对路径String 不可以调用可以调用mkdir()方法</span><br><span class="line"></span><br><span class="line">file.getParentFile()：得到父目录的绝对路径的返回值是File型可以调用mkdir()方法</span><br><span class="line"></span><br><span class="line">String[] gdir.list():得到目录的子目录\文件的名称(不是绝对路径)</span><br><span class="line">File[] dir.listFiles():得到目录的子目录\文件事是否存在。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Files</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         * 在当前项目的根目录下创建一个文件</span></span><br><span class="line"><span class="comment">         * test.txt</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="comment">//表示当前目录，可以忽略"./"</span></span><br><span class="line">        File file = <span class="keyword">new</span> File(<span class="string">"./test2.txt"</span>);</span><br><span class="line">        <span class="keyword">if</span> (!file.exists()) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                file.createNewFile();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">"创建文件成功"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">文件读取：</span><br><span class="line"></span><br><span class="line">1.需要有一个目标文件</span><br><span class="line"></span><br><span class="line">2.需要一个传输通道（IO对象）</span><br><span class="line"></span><br><span class="line">3.需要一个缓冲区（buffer）</span><br><span class="line"></span><br><span class="line">4.执行操作</span><br><span class="line"></span><br><span class="line">5.关闭通道和缓冲区</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">文件写入：</span><br><span class="line"></span><br><span class="line">1.需要有一个目标文件</span><br><span class="line"></span><br><span class="line">2.需要一个传输通道</span><br><span class="line"></span><br><span class="line">3.需要一个缓冲区</span><br><span class="line"></span><br><span class="line">4.执行操作</span><br><span class="line"></span><br><span class="line">5.关闭通道和缓冲区</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://blog.csdn.net/zuo_h_dr/article/details/83964186" target="_blank" rel="noopener">Java - 文件类</a></p>
+<p><a href="https://blog.csdn.net/m0_37989184/article/details/93025734" target="_blank" rel="noopener">Java中File使用–创建文件</a></p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">rarcard</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://rarcard.github.io/2020/06/22/File/">https://rarcard.github.io/2020/06/22/File/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://rarcard.github.io" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/rarcard.github.io/tags/IO/">IO</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/rarcard.github.io/2020/06/22/Java%E5%AE%B9%E5%99%A8/"><img class="prev-cover" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/rarcard.github.io/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java容器</div></div></a></div><div class="next-post pull-right"><a href="/rarcard.github.io/2020/06/21/Hash/"><img class="next-cover" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/rarcard.github.io/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hash</div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By rarcard</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/rarcard.github.io/js/utils.js"></script><script src="/rarcard.github.io/js/main.js"></script><script src="/rarcard.github.io/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script></body></html>

@@ -1,1072 +1,101 @@
-<!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-<script data-ad-client="ca-pub-2453437905270416" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/rarcard.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/rarcard.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/rarcard.github.io/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/rarcard.github.io/favicon.ico?v=5.1.2" />
-
-
-
-
-
-
-<meta name="description" content="关于我学习技术的一个小探索">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://rarcard.github.io/page/2/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="关于我学习技术的一个小探索">
-<meta property="article:author" content="rarcard">
-<meta name="twitter:card" content="summary">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/rarcard.github.io/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hexo - rarcard的第一个blog</title><meta name="description" content="关于我学习技术的一个小探索"><meta name="author" content="rarcard"><meta name="copyright" content="rarcard"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/rarcard.github.io/img/favicon.png"><link rel="canonical" href="https://rarcard.github.io/page/2/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="Hexo"><meta property="og:url" content="https://rarcard.github.io/page/2/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="关于我学习技术的一个小探索"><meta property="og:image" content="https://rarcard.github.io/img/avatar.png"><meta property="article:published_time" content="2020-06-24T10:28:34.993Z"><meta property="article:modified_time" content="2020-06-24T10:28:34.993Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
     }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="https://rarcard.github.io/page/2/"/>
-
-
-
-
-
-  <title>Hexo</title>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<meta name="generator" content="Hexo 4.2.1"></head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-   page-home 
- ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/rarcard.github.io/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle">rarcard的第一个blog</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/rarcard.github.io/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/rarcard.github.io/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/rarcard.github.io/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/rarcard.github.io/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/rarcard.github.io/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/rarcard.github.io/2020/06/23/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%88%9D%E6%8E%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="rarcard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/rarcard.github.io/images/av.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/rarcard.github.io/2020/06/23/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%88%9D%E6%8E%A2/" itemprop="url">Java多线程初探</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-23T13:44:40+08:00">
-                2020-06-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Java多线程编程初探一、概述1、线程的定义一个程序就是一个进程，而一个程序中的多个任务则被称为线程。
-进程是表示资源分配的基本单位，线程是进程中执行运算的最小单位，亦是调度运行的基本单位。
-1打开你的计算机上的任务管理器，会显示出当前机器的所有进程，QQ，360等，当QQ运行时，就有很多子任务在同时运行。比如，当你边打字发送表情，边好友视频时这些不同的功能都可以同时运行，其中每一项任务都可以理解成“线程”在工作。
-
-2、多线程编程作用123451.充分利用CPU资源2.简化编程模型3.简化异步
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/rarcard.github.io/2020/06/23/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%88%9D%E6%8E%A2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/rarcard.github.io/2020/06/23/Java%E3%80%81Interface%E3%80%81abstract/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="rarcard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/rarcard.github.io/images/av.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/rarcard.github.io/2020/06/23/Java%E3%80%81Interface%E3%80%81abstract/" itemprop="url">Java、Interface、abstract</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-23T13:44:40+08:00">
-                2020-06-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Java、Interface、abstract、final、static一、为什么要用接口
-定义接口的重要性
-​    在Java编程，abstract class 和interface是支持抽象类定义的两种机制。正是由于这两种机制的存在，才使得Java成为面向对象的编程语言。
-
-定义接口有利于代码的规范
-​    对于一个大型项目而言，架构师往往会对一些主要的接口来进行定义，或者清理一些没有必要的接口。这样做的目的一方面是为了给开发人员一个清晰的指示，告诉他们哪些业务需要实现；同时也能防止由于
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/rarcard.github.io/2020/06/23/Java%E3%80%81Interface%E3%80%81abstract/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/rarcard.github.io/2020/06/23/java%20%E5%AE%B9%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="rarcard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/rarcard.github.io/images/av.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/rarcard.github.io/2020/06/23/java%20%E5%AE%B9%E5%99%A8/" itemprop="url">java 容器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-23T13:44:40+08:00">
-                2020-06-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          java 容器
-
-导入1、List、Map、Set之间的联系与区别1. 数组和集合的区别1231.数组的大小是固定的，并且同一个数组只能是相同的数据类型2.集合的大小是不固定的，在不知道会有多少数据的情况下可使用集合。
-
-123List：有序集合，元素可重复Set：不重复集合，LinkedHashSet按照插入排序，SortedSet可排序，HashSet无序Map：键值对集合，存储键、值和之间的映射；Key无序，唯一；value 不要求有序，允许重复
-
-2. collection和map的区别
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/rarcard.github.io/2020/06/23/java%20%E5%AE%B9%E5%99%A8/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/rarcard.github.io/2020/06/03/%E5%9F%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="rarcard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/rarcard.github.io/images/av.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/rarcard.github.io/2020/06/03/%E5%9F%9F/" itemprop="url">域</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-03T21:46:12+08:00">
-                2020-06-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/rarcard.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          计算机网络域一、定义域是一个有安全边界的计算机集合，在同一个域中的计算机， 计算机域彼此之间已经建立了信任关系，在域内访问其他机器，不再需要被访问机器的许可。在加入域的时候，管理员为每个计算机在域中（可和用户不在同一域中）建立了一个计算机帐户。计算机帐户的密码在域中称为登录票据，它是由WIN2000的DC（域控制器）上的KDC服务来颁发和维护的。
-12域是一个网络应用的范围，在这个范围内的用户有一定的访问权限网络内用户或者主机,而不在域中的用户会受到域权限的控制而不能访问一些东西,也就是提升了局
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/rarcard.github.io/2020/06/03/%E5%9F%9F/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/rarcard.github.io/2020/06/02/Ajax()/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="rarcard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/rarcard.github.io/images/av.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/rarcard.github.io/2020/06/02/Ajax()/" itemprop="url">Ajax交互技术</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-02T21:46:12+08:00">
-                2020-06-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/rarcard.github.io/categories/web%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">web前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Ajax() 数据异步传输一、Jquery ajax() 参数1、type：要求为String类型的参数，请求方式（post或get）默认为get。注意其他http请求方法，例如put和delete也可以使用，但仅部分浏览器支持。
-2、timeout：要求为Number类型的参数，设置请求超时时间（毫秒）。此设置将覆盖$.ajaxSetup()方法的全局设置。
-3、async：要求为Boolean类型的参数，默认设置为true，所有请求均为异步请求。如果需要发送同步请求，请将此选项设置为fals
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/rarcard.github.io/2020/06/02/Ajax()/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/rarcard.github.io/2020/05/29/%E7%BD%91%E7%BB%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="rarcard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/rarcard.github.io/images/av.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/rarcard.github.io/2020/05/29/%E7%BD%91%E7%BB%9C/" itemprop="url">计算机网络之科学上网</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-29T21:46:12+08:00">
-                2020-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/rarcard.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          计算机网络一、科学上网1、关于代理模式的解释区别一：使用流量多少不一样。
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/rarcard.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/rarcard.github.io/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/rarcard.github.io/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/rarcard.github.io/archives/"><div class="headline">文章</div><div class="length_num">25</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/rarcard.github.io/tags/"><div class="headline">标签</div><div class="length_num">18</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/rarcard.github.io/categories/"><div class="headline">分类</div><div class="length_num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/rarcard.github.io/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/rarcard.github.io/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/rarcard.github.io/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/rarcard.github.io/">Hexo</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/rarcard.github.io/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/rarcard.github.io/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/rarcard.github.io/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/rarcard.github.io/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">Hexo</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/rarcard.github.io/2020/05/29/%E7%BD%91%E7%BB%9C/" title="计算机网络之科学上网">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" alt="计算机网络之科学上网"></a></div><div class="recent-post-info"><a class="article-title" href="/rarcard.github.io/2020/05/29/%E7%BD%91%E7%BB%9C/" title="计算机网络之科学上网">计算机网络之科学上网</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-29 21:46:12"><i class="far fa-calendar-alt"></i>2020-05-29</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/rarcard.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span></div><div class="content">计算机网络一、科学上网1、关于代理模式的解释区别一：使用流量多少不一样。
 PAC模式：节省流量。
 全局模式：流量消耗较多。
 区别二：运行速度快慢不一样。
@@ -1076,970 +105,196 @@ PAC模式：国内网站依旧走本地网络，速度快，绝大部分国外�
 PAC模式：少部分国外网站不走代理，无法起到加速效果，甚至无法访问。
 全局模式：可访问全球所有网站。
 区别四：运行原理不一样。
-PAC模式：所有http/socks数据经过代理服
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/rarcard.github.io/2020/05/29/%E7%BD%91%E7%BB%9C/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/rarcard.github.io/2020/05/28/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="rarcard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/rarcard.github.io/images/av.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/rarcard.github.io/2020/05/28/hello-world/" itemprop="url">hexo测试</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-28T21:46:12+08:00">
-                2020-05-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/rarcard.github.io/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-
-
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/rarcard.github.io/2020/05/28/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/rarcard.github.io/2020/05/27/java%E5%BC%BA%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="rarcard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/rarcard.github.io/images/av.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/rarcard.github.io/2020/05/27/java%E5%BC%BA%E5%8C%96/" itemprop="url">java强化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-27T21:46:12+08:00">
-                2020-05-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/rarcard.github.io/categories/java%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">java基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          java强化一、线程池定义：为了避免重复的创建线程，线程池的出现可以让线程进行复用。通俗点讲，当有工作来，就会向线程池拿一个线程，当工作完成后，并不是直接关闭线程，而是将这个线程归还给线程池供其他任务使用。
-二、迭代器1234567891011121314151617181920212223package statics;import java.util.ArrayList;import java.util.Iterator;import java.util.List;class TestLis
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/rarcard.github.io/2020/05/27/java%E5%BC%BA%E5%8C%96/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/rarcard.github.io/2020/05/26/javaEE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="rarcard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/rarcard.github.io/images/av.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/rarcard.github.io/2020/05/26/javaEE/" itemprop="url">spring</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-26T21:46:12+08:00">
-                2020-05-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/rarcard.github.io/categories/spring/" itemprop="url" rel="index">
-                    <span itemprop="name">spring</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          javaEE一、fastjson1、fastjson是什么？Fastjson 是一个 Java 库，可以将 Java 对象转换为 JSON 格式，当然它也可以将 JSON 字符串转换为 Java 对象。
+PAC模式：所有http/socks数据经过代理服务器的转发送出。而只有支持socks5或者使用系统代理的软件才能使用Shadowsocks（一般的浏览器都是默认使用系统代理）。
+全局模式：不要求应用程序遵循特定的操作系统平台，只是简单地传递数据包，而不必关心是何种应用协议（比如FTP、HTTP和NNTP请求）。
+区别五：智能程度不一样。
+PAC模式：是智能分流模式，根据规则去匹配你访问的网站，仅加速国外网站，国内网站不受影响，非常智能。
+全局模式：机械的利用设计的程序进行访问网站，所有网站都走代理，智能化程度不高。
+2、直连模式直接模式会在系 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/rarcard.github.io/2020/05/27/c%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83/" title="C语言日记1——宏">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" alt="C语言日记1——宏"></a></div><div class="recent-post-info"><a class="article-title" href="/rarcard.github.io/2020/05/27/c%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83/" title="C语言日记1——宏">C语言日记1——宏</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-27 21:46:12"><i class="far fa-calendar-alt"></i>2020-05-27</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/rarcard.github.io/categories/C/">C</a></span></div><div class="content">C语言1. 宏1计算机科学里的宏（Macro)，是一种批量批处理的称谓。一般说来，宏是一种规则或模式，或称语法替换 。解释器或编译器在遇到宏时会自动进行这一模式替换。
+
+1234567891011121314#include&lt;stdio.h&gt;#define M 20int main()&#123;    int a = M;    int b = 20;    /*    编译后变成以下代码    int a = 20;    int b = 20;    */    printf("%d %d",a,b);    return 0;&#125;
+
+   宏定义不是C/C++严格意义上的语句，所以定义后不加分号，使用define后的标示符来代替常量，当我们需要在程序中多次使用200这个值，比如定义数组的长度等，并且可能在以后对该值做出修改时，使用宏定义，我们仅需要改变宏定义所表示的值即可，而不需要到程序中去寻找哪些地方使用了200。
+需要注意的是：
+12在C++中 const也可以用来定义常量。那么const与宏定义的区别在哪儿呢?const定义常量是需要指出类型，而宏定义 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/rarcard.github.io/2020/05/27/java%E5%BC%BA%E5%8C%96/" title="java日记1">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" alt="java日记1"></a></div><div class="recent-post-info"><a class="article-title" href="/rarcard.github.io/2020/05/27/java%E5%BC%BA%E5%8C%96/" title="java日记1">java日记1</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-27 21:46:12"><i class="far fa-calendar-alt"></i>2020-05-27</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/rarcard.github.io/categories/java/">java</a></span></div><div class="content">java强化一、线程池定义：为了避免重复的创建线程，线程池的出现可以让线程进行复用。通俗点讲，当有工作来，就会向线程池拿一个线程，当工作完成后，并不是直接关闭线程，而是将这个线程归还给线程池供其他任务使用。
+二、迭代器1234567891011121314151617181920212223package statics;import java.util.ArrayList;import java.util.Iterator;import java.util.List;class TestList &#123;    public static void main(String[] args) &#123;        List&lt;String&gt; list = new ArrayList&lt;&gt;();        list.add("aa");        list.add("bb");        list.add("cc");        list.add("aa");        Iterator&lt;String&gt; it = list.it ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/rarcard.github.io/2020/05/26/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="Java设计模式1">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" alt="Java设计模式1"></a></div><div class="recent-post-info"><a class="article-title" href="/rarcard.github.io/2020/05/26/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="Java设计模式1">Java设计模式1</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-26 21:46:12"><i class="far fa-calendar-alt"></i>2020-05-26</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/rarcard.github.io/categories/Java/">Java</a></span></div><div class="content">Java设计模式一、概述1、概念软件设计模式（Design pattern），又称设计模式，是一套被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了可重用代码、让代码更容易被他人理解、保证代码可靠性、程序的重用性。
+2、目的
+设计模式是在软件工程实践过程中，程序员们总结出的良好的编程方法。
+​    使用设计模式能够增加系统的健壮性，易修改性和可扩展性，当你进行开发的软件规模比较大的时候，良好的设计模式会给编程带来便利，让系统更加稳定，这些在自己编写小程序的时候是体现不出来的。现在大多数框架都使用了很多设计模式，正是因为有了这些设计模式，才能让程序更好的工作，例如烟水晶框架的单例模式，struts的mvc模式，java类库中iterator的迭代器模式等等，都是设计模式良好的应用。自己在写代码的时候，如果能合理的使用设计模式，一定能让你的面向对象编程大放光彩，在系统模块化和信息隐藏方面做的更好。至于怎么学好设计模式，一定是多练，多看，headfirst design pattern和大话设计模式这两本书都不错，很通俗易懂，可以多多参考。
+
+设计模式其实就是 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/rarcard.github.io/2020/05/26/javaEE/" title="Spring日记1">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" alt="Spring日记1"></a></div><div class="recent-post-info"><a class="article-title" href="/rarcard.github.io/2020/05/26/javaEE/" title="Spring日记1">Spring日记1</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-26 21:46:12"><i class="far fa-calendar-alt"></i>2020-05-26</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/rarcard.github.io/categories/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/">后端框架</a></span></div><div class="content">javaEE一、fastjson1、fastjson是什么？Fastjson 是一个 Java 库，可以将 Java 对象转换为 JSON 格式，当然它也可以将 JSON 字符串转换为 Java 对象。
 Fastjson 可以操作任何 Java 对象，即使是一些预先存在的没有源码的对象。
 2、fastjson 特性
 提供服务器端，安卓端两种解析工具，性能表现比较好。
-提供了 toJSONString() 和 parseObject() 方法来将 Java 对象与 JSON 相互转换。调用toJS
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/rarcard.github.io/2020/05/26/javaEE/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
+提供了 toJSONString() 和 parseObject() 方法来将 Java 对象与 JSON 相互转换。调用toJSONString方 法即可将对象转换成 JSON 字符串，parseObject 方法则反过来将 JSON 字符串转换成对象。
+允许转换预先存在的无法修改的对象（只有class、无源代码）。
+Java泛型的广泛支持。
+允许对象的自定义表示、允许自定义序列化类。
+支持任意复杂对象（具有深厚的继承层次和广泛使用的泛型类型）。
 
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://rarcard.github.io/rarcard.github.io/2020/05/24/Java%20Serializable(%E5%BA%8F%E5%88%97%E5%8C%96)%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="rarcard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/rarcard.github.io/images/av.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/rarcard.github.io/2020/05/24/Java%20Serializable(%E5%BA%8F%E5%88%97%E5%8C%96)%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/" itemprop="url">序列化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-24T21:46:12+08:00">
-                2020-05-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/rarcard.github.io/categories/java%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index">
-                    <span itemprop="name">java基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Java Serializable(序列化)的理解和总结一、Java 序列化1、序列化是干什么的  简单说就是为了保存在内存中的各种对象的状态（也就是实例变量，不是方法），并且可以把保存的对象状态再读出来。虽然你可以用你自己的各种各样的方法来保存object states，但是Java给你提供一种应该比你自己好的保存对象状态的机制，那就是序列化。
+二、ajax1、什么是ajax?AJAX = Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。
+AJAX 不是新的 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/rarcard.github.io/2020/05/24/Java%20Serializable(%E5%BA%8F%E5%88%97%E5%8C%96)%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/" title="序列化">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" alt="序列化"></a></div><div class="recent-post-info"><a class="article-title" href="/rarcard.github.io/2020/05/24/Java%20Serializable(%E5%BA%8F%E5%88%97%E5%8C%96)%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/" title="序列化">序列化</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-24 21:46:12"><i class="far fa-calendar-alt"></i>2020-05-24</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/rarcard.github.io/categories/java/">java</a></span></div><div class="content">Java Serializable(序列化)的理解和总结一、Java 序列化1、序列化是干什么的  简单说就是为了保存在内存中的各种对象的状态（也就是实例变量，不是方法），并且可以把保存的对象状态再读出来。虽然你可以用你自己的各种各样的方法来保存object states，但是Java给你提供一种应该比你自己好的保存对象状态的机制，那就是序列化。
 2、什么情况需要序列化
 当你想要把内存中的对象状态保存到一个文件中或者数据库中的时候；  
 当你想要用套接字在网络上传送对象的时候；
-当你想通过RMI
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/rarcard.github.io/2020/05/24/Java%20Serializable(%E5%BA%8F%E5%88%97%E5%8C%96)%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E6%80%BB%E7%BB%93/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/rarcard.github.io/"><i class="fa fa-angle-left" aria-label="accessibility.prev_page"></i></a><a class="page-number" href="/rarcard.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/rarcard.github.io/page/3/">3</a><a class="extend next" rel="next" href="/rarcard.github.io/page/3/"><i class="fa fa-angle-right" aria-label="accessibility.next_page"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/rarcard.github.io/images/av.jpg"
-               alt="rarcard" />
-          <p class="site-author-name" itemprop="name">rarcard</p>
-           
-              <p class="site-description motion-element" itemprop="description">关于我学习技术的一个小探索</p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/rarcard.github.io/archives/">
-                <span class="site-state-item-count">26</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/rarcard.github.io/categories/index.html">
-                <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/rarcard.github.io/tags/index.html">
-                <span class="site-state-item-count">8</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/rarcard" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                    
-                      GitHub
-                    
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="qwerdfbg123456@163.com" target="_blank" title="E-Mail">
-                  
-                    <i class="fa fa-fw fa-envelope"></i>
-                  
-                    
-                      E-Mail
-                    
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
+当你想通过RMI传输对象的时候；
 
-        
-        
+3、对一个对象实现序列化时，究竟发生了什么？在没有序列化前，每个保存在堆（Heap）中的对象都有相应的状态（state），即实例变量（instance ariable）比如：
+123Foo  myFoo = new Foo();  myFoo .setWidth(37);  myFoo.setHeight(70);
 
-        
+当通过下面的代码序列化之后，MyFoo对象中的width和Height实例变量的值（37，70）都被保存到foo.ser文件中，这样以后又可以把它从文件中读出来 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/rarcard.github.io/2020/05/24/Ajax/" title="Ajax">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" alt="Ajax"></a></div><div class="recent-post-info"><a class="article-title" href="/rarcard.github.io/2020/05/24/Ajax/" title="Ajax">Ajax</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-24 15:39:17"><i class="far fa-calendar-alt"></i>2020-05-24</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/rarcard.github.io/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">Ajax() 数据异步传输一、Jquery ajax() 参数1、type：要求为String类型的参数，请求方式（post或get）默认为get。注意其他http请求方法，例如put和delete也可以使用，但仅部分浏览器支持。
+2、timeout：要求为Number类型的参数，设置请求超时时间（毫秒）。此设置将覆盖$.ajaxSetup()方法的全局设置。
+3、async：要求为Boolean类型的参数，默认设置为true，所有请求均为异步请求。如果需要发送同步请求，请将此选项设置为false。注意，同步请求将锁住浏览器，用户其他操作必须等待请求完成才可以执行。
+4、cache：要求为Boolean类型的参数，默认为true（当dataType为script时，默认为false），设置为false将不会从浏览器缓存中加载请求信息。
+5、data：要求为Object或String类型的参数，发送到服务器的数据。如果已经不是字符串，将自动转换为字符串格式。get请求中将附加在url后。防止这种自动转换，可以查看　　processData选项。对象必须为key/value格式，例如{fo ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/rarcard.github.io/2020/05/23/Junit/" title="junit">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" alt="junit"></a></div><div class="recent-post-info"><a class="article-title" href="/rarcard.github.io/2020/05/23/Junit/" title="junit">junit</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-23 21:46:12"><i class="far fa-calendar-alt"></i>2020-05-23</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/rarcard.github.io/categories/Java/">Java</a></span></div><div class="content">Junit5导入JUnit作为目前Java领域内最为流行的单元测试框架已经走过了数十年。而JUnit5在JUnit4停止更新版本的3年后终于也于2017年发布了。
+一、junit4与 junit5常用注解比较7
 
 
-      </section>
+JUnit4
+JUnit5
+说明
 
-      
 
-      
 
-    </div>
-  </aside>
+@Test
+@Test
+该方法表示一个测试方法
 
 
-        
-      </div>
-    </main>
+@BeforeClass
+@BeforeAll
+表示使用了该方法在当前类中所有使用@Test 的方法之前 执行一次
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">rarcard</span>
-</div>
 
+@AfterClass
+@AfterAll
+该方法在当前类中所有使用@Test 的方法之后 执行一次
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动
-</div>
+@Before
+@BeforeEach
+该方法在当前类中每一个使用了@Test方法之前 执行一次
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
-    NexT.Pisces
-  </a>
-</div>
 
+@After
+@AfterEach
+该方法在当前类中每一个使用了@Test方法之后执行一次
 
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
+@Ignore
+@Disabled
+该方法表示不执行(关闭)该测试方法
 
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
 
+@Parameters
+@ParameterizedTest
+该方法是用于参数化数据的
 
-        
-      </div>
-    </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
 
-  </div>
 
-  
+1、@DisplayName自定义名称
+二、Junit5架构与简述Junit5 与以前的JUni ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/rarcard.github.io/2020/05/23/%E5%AF%BC%E8%AF%AD/" title="java导读">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" alt="java导读"></a></div><div class="recent-post-info"><a class="article-title" href="/rarcard.github.io/2020/05/23/%E5%AF%BC%E8%AF%AD/" title="java导读">java导读</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-23 21:46:12"><i class="far fa-calendar-alt"></i>2020-05-23</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/rarcard.github.io/categories/Java/">Java</a></span></div><div class="content">java导语一、java历史1、定义Java是一门面向对象编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念，因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程
+关键词
+123sun公司 20世纪90年代 加利福利亚 跨平台  二进制机器码指令系统Sun公司首先推出了可以嵌入网页并且可以随同网页在网络上传输的Applet（Applet是一种将小程序嵌入到网页中进行执行的技术），并将Oak更名为Java
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
+版本：发行
 
 
 
+版本
+名称
+发行日期
 
 
 
+JDK 1.1.8
+Chelsea（切尔西–城市名）
+1999-04-08
 
 
+Java SE 8.0 (1.8.0)
+Spider（蜘蛛）
+2014-03-18
 
-  
 
+Java SE 9.0
 
+2017-09-21
 
 
+Java SE 10.0
 
+2018-03-21
 
 
+Java SE 11.0
 
+2018-09-25
 
 
+1JAVA SE 是标准开发和运行环境&#x3D;JDK+JRE
 
 
-  
-  <script type="text/javascript" src="/rarcard.github.io/lib/jquery/index.js?v=2.1.3"></script>
 
-  
-  <script type="text/javascript" src="/rarcard.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+2 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/rarcard.github.io/2020/05/23/java%E6%8B%BE%E9%81%97/" title="Java日记2-位运算相关">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" alt="Java日记2-位运算相关"></a></div><div class="recent-post-info"><a class="article-title" href="/rarcard.github.io/2020/05/23/java%E6%8B%BE%E9%81%97/" title="Java日记2-位运算相关">Java日记2-位运算相关</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-05-23 21:46:12"><i class="far fa-calendar-alt"></i>2020-05-23</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/rarcard.github.io/categories/Java/">Java</a></span></div><div class="content">java拾遗1、位运算下表列出了位运算符的基本运算,假设整数变量A的值为60和变量B的值为13：
 
-  
-  <script type="text/javascript" src="/rarcard.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  
-  <script type="text/javascript" src="/rarcard.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
-  
-  <script type="text/javascript" src="/rarcard.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+操作符
+描述
+例子
 
-  
-  <script type="text/javascript" src="/rarcard.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
+＆
+如果相对应位都是1，则结果为1，否则为0
+（A＆B），得到12，即0000 1100
 
 
-  <script type="text/javascript" src="/rarcard.github.io/js/src/utils.js?v=5.1.2"></script>
+|
+如果相对应位都是0，则结果为0，否则为1
+（A | B）得到61，即 0011 1101
 
-  <script type="text/javascript" src="/rarcard.github.io/js/src/motion.js?v=5.1.2"></script>
 
+^
+如果相对应位值相同，则结果为0，否则为1
+（A ^ B）得到49，即 0011 0001
 
 
-  
-  
+〜
+按位取反运算符翻转操作数的每一位，即0变成1，1变成0。
+（〜A）得到-61，即1100 0011
 
 
-  <script type="text/javascript" src="/rarcard.github.io/js/src/affix.js?v=5.1.2"></script>
+&lt;&lt;
+按位左移运算符。左操作数按位左移右操作数指定的位数。
+A &lt;&lt; 2得到240，即 1111 0000
 
-  <script type="text/javascript" src="/rarcard.github.io/js/src/schemes/pisces.js?v=5.1.2"></script>
 
+&gt;&gt;
+按位右移运算符。左操作数按位右移右操作数指定的位数。
+A &gt;&gt; 2得到15即 1111
 
 
-  
-    <script type="text/javascript" src="/rarcard.github.io/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/rarcard.github.io/js/src/post-details.js?v=5.1.2"></script>
+&gt;&gt;&gt;
+按位右移补零操作符。左操作数的值按右操作数指定的位数右移，移动得到的空位以零填充。
+A&gt;&gt;&gt;2得到15即0000 1111
 
-  
 
-  
-
-
-  <script type="text/javascript" src="/rarcard.github.io/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
+123456789101112131415 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/rarcard.github.io/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/rarcard.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/rarcard.github.io/page/3/">3</a><a class="extend next" rel="next" href="/rarcard.github.io/page/3/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/rarcard.github.io/img/avatar.png" onerror="this.onerror=null;this.src='/rarcard.github.io/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">rarcard</div><div class="author-info__description">关于我学习技术的一个小探索</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/rarcard.github.io/archives"><div class="headline">文章</div><div class="length_num">25</div></a></div><div class="card-info-data-item is-center">      <a href="/rarcard.github.io/tags"><div class="headline">标签</div><div class="length_num">18</div></a></div><div class="card-info-data-item is-center">     <a href="/rarcard.github.io/categories"><div class="headline">分类</div><div class="length_num">10</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/rarcard.github.io/2020/06/23/%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" title="软件质量" alt="软件质量"/></div><div class="aside-post-title"><div class="aside-post_title" href="/rarcard.github.io/2020/06/23/%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F/" title="软件质量">软件质量</div><time class="aside-post_meta post-meta__date" title="发表于 2020-06-23 21:46:12">2020-06-23</time></div></a></div><div class="aside-recent-post"><a href="/rarcard.github.io/2020/06/23/Java%20io/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" title="Java io" alt="Java io"/></div><div class="aside-post-title"><div class="aside-post_title" href="/rarcard.github.io/2020/06/23/Java%20io/" title="Java io">Java io</div><time class="aside-post_meta post-meta__date" title="发表于 2020-06-23 21:46:12">2020-06-23</time></div></a></div><div class="aside-recent-post"><a href="/rarcard.github.io/2020/06/23/Spring/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" title="Spring" alt="Spring"/></div><div class="aside-post-title"><div class="aside-post_title" href="/rarcard.github.io/2020/06/23/Spring/" title="Spring">Spring</div><time class="aside-post_meta post-meta__date" title="发表于 2020-06-23 21:46:12">2020-06-23</time></div></a></div><div class="aside-recent-post"><a href="/rarcard.github.io/2020/06/23/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%E5%88%9D%E6%8E%A2/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" title="Java多线程编程初探" alt="Java多线程编程初探"/></div><div class="aside-post-title"><div class="aside-post_title" href="/rarcard.github.io/2020/06/23/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%E5%88%9D%E6%8E%A2/" title="Java多线程编程初探">Java多线程编程初探</div><time class="aside-post_meta post-meta__date" title="发表于 2020-06-23 21:46:12">2020-06-23</time></div></a></div><div class="aside-recent-post"><a href="/rarcard.github.io/2020/06/23/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/rarcard.github.io/img/404.jpg'" title="排序算法" alt="排序算法"/></div><div class="aside-post-title"><div class="aside-post_title" href="/rarcard.github.io/2020/06/23/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="排序算法">排序算法</div><time class="aside-post_meta post-meta__date" title="发表于 2020-06-23 21:46:12">2020-06-23</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/rarcard.github.io/categories/C/"><span class="card-category-list-name">C</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/rarcard.github.io/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/rarcard.github.io/categories/VS-code/"><span class="card-category-list-name">VS code</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/rarcard.github.io/categories/java/"><span class="card-category-list-name">java</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/rarcard.github.io/categories/win10/"><span class="card-category-list-name">win10</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/rarcard.github.io/categories/%E5%89%8D%E7%AB%AF/"><span class="card-category-list-name">前端</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/rarcard.github.io/categories/%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6/"><span class="card-category-list-name">后端框架</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/rarcard.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="card-category-list-name">数据结构</span><span class="card-category-list-count">3</span></a></li>
+            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/rarcard.github.io/categories">
+                <span>查看更多</span><i class="fas fa-angle-right"></i></a></li>           
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/rarcard.github.io/tags/IO/" style="font-size: 16px; color: #999">IO</a> <a href="/rarcard.github.io/tags/SQA/" style="font-size: 16px; color: #999">SQA</a> <a href="/rarcard.github.io/tags/Spring/" style="font-size: 22px; color: #99a9bf">Spring</a> <a href="/rarcard.github.io/tags/String/" style="font-size: 16px; color: #999">String</a> <a href="/rarcard.github.io/tags/io/" style="font-size: 22px; color: #99a9bf">io</a> <a href="/rarcard.github.io/tags/junit/" style="font-size: 16px; color: #999">junit</a> <a href="/rarcard.github.io/tags/lambda/" style="font-size: 16px; color: #999">lambda</a> <a href="/rarcard.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" style="font-size: 16px; color: #999">位运算</a> <a href="/rarcard.github.io/tags/%E5%9F%BA%E7%A1%80/" style="font-size: 22px; color: #99a9bf">基础</a> <a href="/rarcard.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 22px; color: #99a9bf">多线程</a> <a href="/rarcard.github.io/tags/%E5%AE%8F/" style="font-size: 16px; color: #999">宏</a> <a href="/rarcard.github.io/tags/%E5%AE%B9%E5%99%A8/" style="font-size: 16px; color: #999">容器</a> <a href="/rarcard.github.io/tags/%E5%BA%8F%E5%88%97%E5%8C%96/" style="font-size: 16px; color: #999">序列化</a> <a href="/rarcard.github.io/tags/%E5%BC%82%E6%AD%A5/" style="font-size: 16px; color: #999">异步</a> <a href="/rarcard.github.io/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 22px; color: #99a9bf">快捷键</a> <a href="/rarcard.github.io/tags/%E7%AE%97%E6%B3%95/" style="font-size: 22px; color: #99a9bf">算法</a> <a href="/rarcard.github.io/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 22px; color: #99a9bf">网络</a> <a href="/rarcard.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 16px; color: #999">设计模式</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/rarcard.github.io/archives/2020/06/"><span class="card-archive-list-date">六月 2020</span><span class="card-archive-list-count">10</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/rarcard.github.io/archives/2020/05/"><span class="card-archive-list-date">五月 2020</span><span class="card-archive-list-count">15</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">25</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By rarcard</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">繁</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/rarcard.github.io/js/utils.js"></script><script src="/rarcard.github.io/js/main.js"></script><script src="/rarcard.github.io/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
+if (subtitleEffect) { 
+  var typed = new Typed("#subtitle", {
+    strings: "今日事&#44;今日畢,Never put off till tomorrow what you can do today".split(","),
+    startDelay: 300,
+    typeSpeed: 150,
+    loop: true,
+    backSpeed: 50
+  })
+} else {
+  document.getElementById("subtitle").innerHTML = '今日事&#44;今日畢'
+}</script></body></html>
